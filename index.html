@@ -6,10 +6,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>elsajyang - A Developer's Personal Site</title>
+        <!-- <base href="./"> -->
         <meta name="description" content="elsajyang is a developer's personal site inspired by terminal UX/UI">
+
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>elsa.jy</h1>
-        <h1>Getting started has always been the hardest part.</h1>
+        <header>
+            <h1><a class="logo" href="./">elsajyang:/ $ </a></h1>
+        </header>
+        <div class="content">
+            <h1>Getting started has always been the hardest part.</h1>
+        </div>
+
+        <div class="post">
+            <div id="2020-11-20">
+                <span class="post-title"><a class="post-link" href="#2020-11-20">2020-11-20</a> - a developer's nightmare</span>
+
+                <p>I wanted to build a website. This website. And somehow I ended up googling &quot;how to run a program in terminal&quot; while trying to run the command <code>browser-sync</code>, a Node package I installed locally, on the command line. The answer could not be found on <a href="https://browsersync.io/docs/command-line">browser-sync&#39;s docs</a>, but I quickly found <a href="https://stackoverflow.com/a/55859171">BrowserSync: command not found after installing locally</a>. The solution worked, but I couldn&#39;t say I fully understood it because I never fully understood <code>PATH</code>. I tried to comprehend <code>PATH</code> again, but this time in a roundabout way—I googled &quot;how to run a program in terminal.&quot;</p>
+                <p>Fortunately, I was able to put together the pieces after reading <a href="https://unix.stackexchange.com/questions/4430/why-do-we-use-dot-slash-to-execute-a-file-in-linux-unix">why do we use a &quot;./&quot; (dot slash) to execute a file in Linux/UNIX</a> and rereading <a href="https://superuser.com/a/284351">What are PATH and other environment variables, and how can I set or use them?</a>. And luckily the <a href="https://unix.stackexchange.com/a/573004">answer</a> I found was beautifully put. But you see, like most answers I find, the answer is only as good as the question posed. And the question posed on the StackExchange post assumed that I, the reader, had to have some previous knowledge of the following:</p>
+                <ul>
+                <li><code>PATH</code>, the environment variable, and how an OS (operating system) uses it</li>
+                <li><a href="https://www.w3schools.com/html/html_filepaths.asp">absolute paths vs relative paths</a></li>
+                <li>path resolution</li>
+                <li>how one runs commands via command line</li>
+                <li>how programs are &quot;usually&quot; run</li>
+                </ul>
+                <p>Can you see how the first bullet point is tragic? Can you see how that last bullet point is ironic? Imagine if I were a novice who simply wanted to know &quot;how to run a program in terminal?&quot;</p>
+                <blockquote>
+                <p>I&#39;m reminded of &quot;CS162: Operating Systems,&quot; a course I took as an undergraduate. I can still remember how utterly <em>confused</em> I was trying to implement Project 1: User Programs and System Calls and HW2: Shell. The confusion was <em>conceptual</em>, and some of it plain jargon—what is a shell? what are system calls? In the end, it was the select resources I perused and my fellow honor society peers I seeked out for help that made things click.</p>
+                </blockquote>
+                <p>They are always saying &quot;just Google it.&quot; They aren&#39;t wrong—I manage to find what I&#39;m looking for. However, the search process often requires my undergraduate CS knowledge and experience, or the intuition gained from the former, or copious amounts of time.</p>
+                <p>Problem solving is fantastic. Struggling while problem solving is necessary. Spending hours trying to configure and run a simple file when the solution is quite simple <em>only because</em> the solution isn&#39;t well documented, or requires a bit more conceptual knowledge, is wasted.</p>
+                <p>One experiences both beauty and torment as a developer, as one does riding a rollercoaster. When things don&#39;t work, it&#39;s frustrating. But when they do, it&#39;s pure bliss. Then you find yourself back where you started, like code in a while (true) loop.</p>
+                <p>I&#39;ve arrived back where I started. But this time it&#39;s different—I&#39;d ridden the ride.</p>
+                <p>The following posts hope to consolidate my findings in one place for my reference as well as streamline the developer&#39;s ride for someone else.</p>
+
+                
+            </div>
+        </div>
+        <footer>
+
+        </footer>
     </body>
 </html>
