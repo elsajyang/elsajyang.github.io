@@ -1,0 +1,59 @@
+html {
+    background-color:white;
+}
+
+body {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h1 {
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-weight: 400;
+}
+
+a {
+    opacity: 0.97;
+}
+
+code {
+    background-color: aliceblue;
+}
+
+blockquote {
+    color: dimgray;
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+}
+
+footer {
+    height: 100px;
+}
+
+.logo {
+    color: black;
+    text-decoration: none;
+}
+
+.content {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.post {
+    font-family: Assistant, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    word-spacing: 1px;
+    color:black;
+    opacity:0.9;
+}
+
+.post-title{
+    font-size: 32px;
+}
+
+.post-link{
+    font-weight: bold;
+}
