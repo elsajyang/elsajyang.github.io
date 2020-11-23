@@ -21,29 +21,27 @@ a {
     opacity: 0.97;
 }
 
-code {
-    background-color: aliceblue;
-}
-
 blockquote {
     color: dimgray;
     border-left: 3px solid #ccc;
     padding-left: 15px;
 }
 
+code {
+    background-color: aliceblue;
+}
+
 footer {
     height: 100px;
 }
 
-.logo {
-    color: black;
-    text-decoration: none;
+.container {
+    max-width: 750px;
+    margin: auto;
 }
 
 .content {
-    margin-left: 20%;
     margin-top: 10%;
-    margin-right: 20%;
     margin-bottom: 10%;
 }
 
@@ -55,6 +53,11 @@ footer {
     padding-left: 0.8em;
     background-color: lightblue;
     opacity: 0.9;
+}
+
+.logo {
+    color: black;
+    text-decoration: none;
 }
 
 .post {
