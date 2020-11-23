@@ -1,10 +1,15 @@
-html {
-    background-color:white;
+@import 'https://code.cdn.mozilla.net/fonts/fira.css';
+@import 'https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500&display=swap';
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
-body {
-    margin-left: 20%;
-    margin-right: 20%;
+html, body {
+    background-color:white;
+    /* text-rendering: optimizeLegibility; */
 }
 
 h1 {
@@ -36,18 +41,28 @@ footer {
 }
 
 .content {
+    margin-left: 20%;
     margin-top: 10%;
+    margin-right: 20%;
     margin-bottom: 10%;
+}
+
+.cursor-primary {
+    font-size: 0.8em;
+    position: relative;
+    left: 1em;
+    bottom: 0.2em;
+    padding-left: 0.8em;
+    background-color: lightblue;
+    opacity: 0.9;
 }
 
 .post {
     font-family: Assistant, Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 1.25em;      /* font-size: 20px; */
+    line-height: 1.5em;
     word-spacing: 1px;
-    color:black;
-    opacity:0.9;
+    color:#333;
 }
 
 .post-title{
