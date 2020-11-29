@@ -1,12 +1,14 @@
 @import 'https://code.cdn.mozilla.net/fonts/fira.css';
 @import 'https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500&display=swap';
 
-* {
+/* To-do: Uncomment box sizing comments */
+*, *::after, *::before {
     box-sizing: border-box;
     /* -webkit-box-sizing: border-box; */
     /* -moz-box-sizing: border-box; */
 }
 
+/* To-do: Look into height: vw */
 html, body {
     height: 100%;
     margin: 0;   /* Gets rid of browser default margins */
@@ -14,6 +16,9 @@ html, body {
     /* text-rendering: optimizeLegibility; */
 }
 
+/* To-do: Fix body's flex effect on other elements
+(e.g. header, main, footer) */
+/* Note: flexbox does not have margin collapsing  */
 body {
     display: flex;      /* Formats footer */
     flex-direction: column;
@@ -23,10 +28,11 @@ main {
     flex: 1 0 auto;     /* Formats footer */
 }
 
-section {
+main section {
     margin: 100px 0px;
 }
 
+/* To-do: Look into px vs em */
 p {
     font-family: Assistant, Helvetica, sans-serif;
     font-size: 1.25em;      /* font-size: 20px; */
@@ -35,13 +41,22 @@ p {
     color:#333;
 }
 
+p.a {
+    opacity: 0.97;
+}
+
 h1, h2, h3 {
     font-family: 'Fira Mono','Courier New', Courier, monospace;
     font-weight: 400;
 }
 
-p.a {
-    opacity: 0.97;
+/* Solution 1: all text, including hr, be in containers 
+but hr extends past container content.
+hr doesn't really allow use of padding */
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px -16px;
 }
 
 blockquote {
@@ -54,12 +69,14 @@ code {
     background-color: aliceblue;
 }
 
+/* To-do: Decide how to organize page containers (margin) vs grids (padding) */
 .container {
     max-width: 800px;
     margin: auto;
     padding: 0px 2em;
 }
 
+/* To-do: Integrate a cursor if probable */
 /* .cursor-primary {
     position: relative;
     font-size: 1.5em;
@@ -75,6 +92,33 @@ code {
     flex-wrap: wrap;
 }
 
+/* Decides the placement of footer content */
+.footer-bar {
+    height: 100%;
+    max-width: 800px;
+    margin: 0 100px;
+    padding: 0px 2em;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.footer-bar div {
+    margin: 0.5em 0;
+}
+
+.footer-bar hr {
+    border: 0;
+    border-top: 1px solid white;
+    margin: 20px -16px;
+}
+
+.footer-bar p {
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1em;
+    color: black;
+}
+
 .logo {
     font-size: 1.5em;
     color: black;
@@ -87,7 +131,6 @@ code {
     justify-content: space-between;
     align-items: center;
     font-family: 'Fira Mono','Courier New', Courier, monospace;
-
 }
 
 .nav-menu {
@@ -116,6 +159,21 @@ code {
     font-weight: bold;
 }
 
+p.terminal {
+    font-family: 'Fira Mono', 'Courier New', Courier, monospace;
+    color: white;
+}
+
+p.terminal::first-line {
+    color: black;
+}
+
+p.terminal a {
+    text-decoration: none;
+    color: white;
+}
+
+
 #site-header {
     position: sticky;
     top: 0;
@@ -127,12 +185,11 @@ code {
 }
 
 #site-footer {
-    background-color: honeydew;
     flex-shrink: 0;     /** disallow shrink **/
     bottom: 0;
-    height: 100px;
+    height: 100%;
     width: 100%;
-    padding: 20px 0px;
+    background-color: lightslategrey;
 }
 
 @media only screen and (max-width: 750px) {
