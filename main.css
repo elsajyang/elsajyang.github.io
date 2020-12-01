@@ -8,6 +8,7 @@
     /* -moz-box-sizing: border-box; */
 }
 
+/* HTML CONTENT SECTIONING ELEMENTS */
 html, body {
     background-color: white;
     height: 100%;
@@ -41,11 +42,20 @@ footer.end-content {
     height: 10em;
 }
 
+/* HTML TEXT AND MEDIA ELEMENTS */
+a {
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    background-color: lightsteelblue;
+    color: black;
+}
+
 address {
     font-style: normal;
 }
 
-/* look into px vs em */
 blockquote {
     position: relative;
     left: 5px;
@@ -61,6 +71,10 @@ code {
     background-color: aliceblue;
     line-height: initial;
     word-spacing: initial;
+}
+
+code a {
+    color: #333;
 }
 
 p {
@@ -79,7 +93,7 @@ h1, h2, h3 {
     font-weight: 400;
 }
 
-/* We want headers to scale font size 
+/* To-do: We want headers to scale font size 
 relative to their parent containers */
 h1 {
     font-size: 2.4rem;
@@ -101,22 +115,15 @@ hr {
     margin: 20px -16px;
 }
 
+/* CONTAINERS AND PADDING */
 .container-page, .container-footer {
     max-width: 700px;
     margin: auto;
 }
 
-/* Allow content to have max height of site footer */
+/* Allow content to have a height of site-footer */
 .container-footer {
     height: 100%;
-}
-
-.cursor {
-    position: relative;
-    top: -0.2em;
-    left: 0.2em;
-    font-family: 'Fira Mono','Courier New', Courier, monospace;
-    color: #ccc;
 }
 
 .flex-col {
@@ -129,6 +136,35 @@ hr {
     flex-direction: row;
 }
 
+.padding-1-5em {
+    padding: 1.5em;
+}
+
+/* NAV ELEMENTS */
+.nav-bar {
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+.nav-bar.flex-row{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu.flex-row{
+    justify-content: space-between;
+}
+
+.nav-menu a {
+    color: black;
+    margin: 0 0.5em;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+/* FOOTER ELEMENTS */
 /* Decides the placement of footer content */
 .footer-bar {
     position: relative;
@@ -148,8 +184,12 @@ hr {
 }
 
 .footer-bar a {
-    text-decoration: none;
     color: white;
+}
+
+.footer-bar a:hover, a:active {
+    background-color: lightsteelblue;
+    color: #333;
 }
 
 .footer-bar hr {
@@ -166,37 +206,7 @@ hr {
     color: black;
 }
 
-.logo {
-    font-family: 'Fira Mono','Courier New', Courier, monospace;
-    font-size: 2.0rem;
-    color: black;
-    text-decoration: none;
-}
-
-.nav-bar {
-    font-family: 'Fira Mono','Courier New', Courier, monospace;
-    font-size: 1.5rem;
-}
-
-.nav-bar.flex-row{
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-menu.flex-row{
-    justify-content: space-between;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: black;
-    margin: 0 0.5em;
-}
-
-.padding-1-5em {
-    padding: 1.5em;
-}
-
+/* POST ELEMENTS */
 /* !!! everything in post has not been audited */
 .post p {
     font-family: Assistant, Helvetica, sans-serif;
@@ -220,8 +230,24 @@ hr {
     font-weight: 500;
 }
 
-.screen-reader-text {
-    display: none;
+/* ADDITIONAL DESIGN ELEMENTS */
+.coding-tools {
+    cursor: help;
+}
+
+.cursor {
+    position: relative;
+    top: -0.2em;
+    left: 0.2em;
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    color: #ccc;
+}
+
+.logo {
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 2.0rem;
+    color: black;
+    text-decoration: none;
 }
 
 .terminal {
@@ -245,8 +271,8 @@ hr {
     /* Disallow shrink */
     flex-shrink: 0;
     bottom: 0;
-    /* Fill viewport with a footer page */
-    height: 100%;
+    /* Footer should be at least as tall as viewport height */
+    min-height: 100vh;
     background-color: lightslategrey;
 }
 
