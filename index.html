@@ -23,65 +23,73 @@
     <body>
         <a class="screen-reader-text" href="#content">Skip Navigation</a>
         <header id="site-header">
-            <nav class="container nav-bar flex">
-                <a class="logo" href="./">elsajyang:/ $</a>
-                <div class="nav-menu flex">
-                    <a href="about.html">/about</a>
-                    <a href="projects.html">/projects</a>
-                    <a href="posts.html">/posts</a>
-                </div>
-            </nav>
+            <div class="container-page padding-1-5em">
+                <nav class="nav-bar flex-row">
+                    <a class="logo" href="./">elsajyang:/ $</a>
+                    <div class="nav-menu flex-row">
+                        <a href="about.html">/about</a>
+                        <a href="projects.html">/projects</a>
+                        <a href="posts.html">/posts</a>
+                    </div>
+                </nav>
+            </div>
         </header>
-        <main id="content" class="container">
-            <section>
-                <article class="intro">
-                    <h1>Hello, my name is Elsa.</h1>
-                    
-                    <p>I'm a recent college grad who majored in computer science as an undergraduate at UC Berkeley.</p>
+        <main id="content">
+            <div class="container-page padding-1-5em flex-col">
+                <section>
+                    <article class="intro">
+                        <h2>Hello, my name is Elsa.</h2>
                         
-                    <p>I'm actively looking for a role as a software developer or software engineer. I'm interested in working in back-end or full stack development. I code in Python, Java, C, GoLang, HTML, CSS, and JavaScript.</p>
-                        
-                    <p>I'm currently building things, like this website, and documenting the dev process. My design philosophy is, <em>"Design and thought from the start."</em></p>
-                        
-                    <p>I constantly think about education, energy, materials, and waste. I look forward to how we as humans plan to transform, redefine, and advance our and technology's relationship with those spaces.</p>
-                </article>
-            </section>
-            <section>
-                <h1>Theme of the week: Getting started has always been the hardest part.</h1>
-            </section>
-            <section>
-                <h1>Latest Posts</h1>
-                <article id="2020-11-20" class="post-card">
-                    <h2 class="post-title"><a class="post-link" href="#2020-11-20">2020 Nov 20</a> - a developer's nightmare</h2>
-                    <p>I wanted to build a website. This website. And somehow I ended up googling &quot;how to run a program in terminal&quot; while trying to run the command <code>browser-sync</code>, a Node package I installed locally, on the command line.</p>
-                </article>
-                <div>:<span class="cursor">▇</span></div>
-            </section>
+                        <p>I'm a recent college grad who majored in computer science as an undergraduate at UC Berkeley.</p>
+                            
+                        <p>I'm actively looking for a role as a software developer or software engineer. I'm interested in working in back-end or full stack development. I code in Python, Java, C, GoLang, HTML, CSS, and JavaScript.</p>
+                            
+                        <p>I'm currently building things, like this website, and documenting the dev process. My design philosophy is, <em>"Design and thought from the start."</em></p>
+                            
+                        <p>I constantly think about education, energy, materials, and waste. I look forward to how we as humans plan to transform, redefine, and advance our and technology's relationship with those spaces.</p>
+                    </article>
+                </section>
+                <section>
+                    <h2>Theme of the week: Getting started has always been the hardest part.</h2>
+                </section>
+                <section>
+                    <h2>Latest Posts</h2>
+                    <article id="2020-11-20" class="post-card">
+                        <h3 class="post-title"><a class="post-link" href="#2020-11-20">2020 Nov 20</a> - a developer's nightmare</h3>
+                        <p>I wanted to build a website. This website. And somehow I ended up googling &quot;how to run a program in terminal&quot; while trying to run the command <code>browser-sync</code>, a Node package I installed locally, on the command line.</p>
+                    </article>
+                </section>
+                <footer class="end-content">
+                    <div>:<span class="cursor">▇</span></div>
+                </footer>
+            </div>
         </main>
         <footer id="site-footer">
-            <div class="footer-bar">
-                <section class="social">
-                    <p class="terminal first-line">elsayang:/ visitor$ cat socials.txt</p>
-                    <address class="terminal">
-                        <a href="mailto:elsajy@gmail.com?subject=elsajyang.github.io: ">elsajy@gmail.com</a>
-                        <br><a href="https://github.com/elsajyang" title="My general GitHub"  rel="noopener">github.com/elsajyang</a>
-                    </address>
-                </section>
-                <section class="site-description">
-                    <p class="terminal">elsayang:/ visitor$ cat README.md
-                        <br>Inspired by terminal UX/UI.
-                        <br>Built in HTML and CSS from scratch.
-                        <br>Developed in <a href="https://code.visualstudio.com/" title="Visual Studio Code is a code editor created by Microsoft.">VSCode</a> using <a href="https://nodejs.org/en/" title="Node.js executes JavaScript code outside a web browser. Built on Chrome's V8 JavaScript engine.">Node.js</a>.
-                        <br>Hosted by <a href="https://pages.github.com/" title="GitHub Pages hosts static websites directly from (files in) a GitHub repository.">GitHub Pages</a>.
-                        <!-- <br>Open source code in a <a href="" title=""> repo</a>. -->
-                        <!-- <br>Read about this website's dev process. -->
-                    </p>
-                </section>
-                <hr>
-                <section class="copyright">
-                    <p>No Copyright 2020 elsajyang.</p>
-                    <p>Feel free to use whatever you'd like from my site, and credit me or any creators I may have referenced that inspired you.<span class="cursor">▇</span></p>
-                </section>
+            <div class="container-footer padding-1-5em">
+                <div class="footer-bar flex-col">
+                    <section class="social">
+                        <p class="terminal first-line">elsayang:/ visitor$ cat socials.txt</p>
+                        <address class="terminal">
+                            <a href="mailto:elsajy@gmail.com?subject=elsajyang.github.io: ">elsajy@gmail.com</a>
+                            <br><a href="https://github.com/elsajyang" title="My general GitHub"  rel="noopener">github.com/elsajyang</a>
+                        </address>
+                    </section>
+                    <section class="site-description">
+                        <p class="terminal">elsayang:/ visitor$ cat README.md
+                            <br>Inspired by terminal UX/UI.
+                            <br>Built in HTML and CSS from scratch.
+                            <br>Developed in <a href="https://code.visualstudio.com/" title="Visual Studio Code is a code editor created by Microsoft.">VSCode</a> using <a href="https://nodejs.org/en/" title="Node.js executes JavaScript code outside a web browser. Built on Chrome's V8 JavaScript engine.">Node.js</a>.
+                            <br>Hosted by <a href="https://pages.github.com/" title="GitHub Pages hosts static websites directly from (files in) a GitHub repository.">GitHub Pages</a>.
+                            <!-- <br>Open source code in a <a href="" title=""> repo</a>. -->
+                            <!-- <br>Read about this website's dev process. -->
+                        </p>
+                    </section>
+                    <hr>
+                    <section class="copyright">
+                        <p>No Copyright 2020 elsajyang.</p>
+                        <p>Feel free to use whatever you'd like from my site, and credit me or any creators I may have referenced that inspired you.<span class="cursor">▇</span></p>
+                    </section>
+                </div>
             </div>
         </footer>
     </body>

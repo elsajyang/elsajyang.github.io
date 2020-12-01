@@ -8,37 +8,66 @@
     /* -moz-box-sizing: border-box; */
 }
 
-/* To-do: Look into height: vw */
 html, body {
+    background-color: white;
     height: 100%;
-    margin: 0;   /* Gets rid of browser default margins */
-    background-color:white;
+    font-size: 62.5%;
+}
+
+/* Note: Flexbox does not collapse margins */
+body {
+    /* Removes browser default margins */
+    margin: 0;
+    /* Formats footer */
+    display: flex;
+    flex-direction: column;
+    font-family: Assistant, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: #333;
     /* text-rendering: optimizeLegibility; */
 }
 
-/* To-do: Fix body's flex effect on other elements
-(e.g. header, main, footer) */
-/* Note: flexbox does not have margin collapsing  */
-body {
-    display: flex;      /* Formats footer */
-    flex-direction: column;
-}
-
 main {
-    flex: 1 0 auto;     /* Formats footer */
+    /* Formats footer */
+    flex: 1 0 auto;
 }
 
+/* flex elements */
 main section {
-    margin: 100px 0px;
+    margin: 1em 0;
 }
 
-/* To-do: Look into px vs em */
+footer.end-content {
+    height: 10em;
+}
+
+address {
+    font-style: normal;
+}
+
+/* look into px vs em */
+blockquote {
+    position: relative;
+    left: 5px;
+    border-left: 3px solid #555;
+    background-color: #eee;
+    color: dimgray;
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    padding-left: 1.5em;
+}
+
+code {
+    background-color: aliceblue;
+    line-height: initial;
+    word-spacing: initial;
+}
+
 p {
-    font-family: Assistant, Helvetica, sans-serif;
-    font-size: 1.25em;      /* font-size: 20px; */
+    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 1.5em;
     word-spacing: 1px;
-    color:#333;
 }
 
 p.a {
@@ -50,162 +79,193 @@ h1, h2, h3 {
     font-weight: 400;
 }
 
-/* Solution 1: all text, including hr, be in containers 
-but hr extends past container content.
-hr doesn't really allow use of padding */
+/* We want headers to scale font size 
+relative to their parent containers */
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 2.0rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+/* hr exists in containers 
+but extends past container on both ends */
 hr {
     border: 0;
     border-top: 1px solid #ccc;
     margin: 20px -16px;
 }
 
-blockquote {
-    color: dimgray;
-    border-left: 3px solid #ccc;
-    padding-left: 15px;
-}
-
-code {
-    background-color: aliceblue;
-}
-
-/* To-do: Decide how to organize page containers (margin) vs grids (padding) */
-.container {
-    max-width: 800px;
+.container-page, .container-footer {
+    max-width: 700px;
     margin: auto;
-    padding: 0px 2em;
 }
 
-/* To-do: Integrate a cursor if probable */
-/* .cursor-primary {
-    position: relative;
-    font-size: 1.5em;
-    bottom: 0.1em;
-    padding-right: 0.6em;   Draws a rectangle
-    margin: 0px 10px;
-    background-color: lightblue;
-    opacity: 0.9;
-} */
+/* Allow content to have max height of site footer */
+.container-footer {
+    height: 100%;
+}
 
-.flex {
+.cursor {
+    position: relative;
+    top: -0.2em;
+    left: 0.2em;
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    color: #ccc;
+}
+
+.flex-col {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
 }
 
 /* Decides the placement of footer content */
 .footer-bar {
-    height: 100%;
-    max-width: 800px;
-    margin: 0 100px;
-    padding: 0px 2em;
-    display: flex;
-    flex-flow: column wrap;
+    position: relative;
+    top: 20%;
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.footer-bar.flex-col {
     justify-content: center;
 }
 
-.footer-bar div {
+/* flex element */
+.footer-bar section {
     margin: 0.5em 0;
 }
 
+.footer-bar a {
+    text-decoration: none;
+    color: white;
+}
+
 .footer-bar hr {
-    border: 0;
-    border-top: 1px solid white;
-    margin: 20px -16px;
+    border-color: white;
 }
 
 .footer-bar p {
     font-family: 'Fira Mono','Courier New', Courier, monospace;
-    font-size: 1em;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.footer-bar .cursor {
     color: black;
 }
 
 .logo {
-    font-size: 1.5em;
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 2.0rem;
     color: black;
     text-decoration: none;
 }
 
-/* .nav-bar .flex could not render. Look into this. */
 .nav-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1.5rem;
 }
 
-.nav-menu {
-    font-size: 1.15em;
+.nav-bar.flex-row{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu.flex-row{
+    justify-content: space-between;
 }
 
 .nav-menu a {
     text-decoration: none;
     color: black;
-    margin: 0em 0.5em;
+    margin: 0 0.5em;
 }
 
-.post {
+.padding-1-5em {
+    padding: 1.5em;
+}
+
+/* !!! everything in post has not been audited */
+.post p {
     font-family: Assistant, Helvetica, sans-serif;
-    font-size: 1.25em;      /* font-size: 20px; */
+    font-size: 1.25rem;      /* font-size: 20px; */
     line-height: 1.5em;
     word-spacing: 1px;
-    color:#333;
+    color: #333;
+}
+
+.post-card p {
+    margin: 0 0 0 2.5em;
 }
 
 .post-title {
-    font-size: 32px;
+    margin-bottom: 0;
+    text-transform: uppercase;
 }
 
 .post-link {
-    font-weight: bold;
-}
-
-p.terminal {
-    font-family: 'Fira Mono', 'Courier New', Courier, monospace;
-    color: white;
-}
-
-p.terminal::first-line {
-    color: black;
-}
-
-p.terminal a {
     text-decoration: none;
-    color: white;
+    font-weight: 500;
 }
 
+.screen-reader-text {
+    display: none;
+}
+
+.terminal {
+    font-family: 'Fira Mono', 'Courier New', Courier, monospace;
+}
+
+.terminal.first-line {
+    margin-bottom: 0;
+}
 
 #site-header {
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
-    height: 80px;
-    width: 100%;
     background-color: white;
     box-shadow: 0 1px 6px 0 #ccc;
-    padding: 20px 0px;
+    clip-path: inset(0px 0px -5px 0px);
 }
 
 #site-footer {
-    flex-shrink: 0;     /** disallow shrink **/
+    /* Disallow shrink */
+    flex-shrink: 0;
     bottom: 0;
+    /* Fill viewport with a footer page */
     height: 100%;
-    width: 100%;
     background-color: lightslategrey;
 }
 
+/* everything smaller than 768px? has footer text padding-left away */
+/* everything bigger has footer text has margin-left: 100px away */
 @media only screen and (max-width: 750px) {
     .logo {
-        font-size: 1.25em;
+        font-size: 1.25rem;
         color: black;
         text-decoration: none;
     }
     
     .nav-menu {
-        font-size: 1em;
+        font-size: 1rem;
     }
     
     .nav-menu a {
         text-decoration: none;
         color: black;
-        margin: 0em 0.25em;
+        margin: 0 0.25em;
     }
 }
