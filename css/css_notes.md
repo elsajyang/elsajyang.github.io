@@ -7,5 +7,8 @@ CSS notes
     * design, headers: 'Fira Mono','Courier New', Courier, monospace;
     * text: Assistant, Helvetica, san-serif;
 * cursor: size and position determined by primary font
-* colors: aliceblue, lightblue, lightsteelblue
-* alternatives to black: #333
+* colors: aliceblue, lightsteelblue, lightslategrey, dimgrey, #ccc, #ddd
+* text: #333
+* /* fonts */
+/* default Fira font-size: 1.5rem; */
+/* default Assistant font-size: 1.8rem; */
