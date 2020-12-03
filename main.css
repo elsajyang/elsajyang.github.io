@@ -1,5 +1,9 @@
+/* fonts */
+/* default font-size: 1.5rem; */
 @import 'https://code.cdn.mozilla.net/fonts/fira.css';
+/* default font-size: 1.8rem; */
 @import 'https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500&display=swap';
+@import url(external.css);
 
 /* To-do: Uncomment box sizing comments */
 *, *::after, *::before {
@@ -10,8 +14,8 @@
 
 /* HTML CONTENT SECTIONING ELEMENTS */
 html, body {
+    min-height: 100%;
     background-color: white;
-    height: 100%;
     font-size: 62.5%;
 }
 
@@ -26,6 +30,8 @@ body {
     font-size: 1.5rem;
     color: #333;
     /* text-rendering: optimizeLegibility; */
+    /* to stop flickering of text in safari */
+    -webkit-font-smoothing: antialiased;
 }
 
 main {
@@ -45,6 +51,7 @@ footer.end-content {
 /* HTML TEXT AND MEDIA ELEMENTS */
 a {
     text-decoration: none;
+    color: royalblue;
 }
 
 a:hover, a:active {
@@ -84,10 +91,6 @@ p {
     word-spacing: 1px;
 }
 
-p.a {
-    opacity: 0.97;
-}
-
 h1, h2, h3 {
     font-family: 'Fira Mono','Courier New', Courier, monospace;
     font-weight: 400;
@@ -117,12 +120,13 @@ hr {
 
 /* CONTAINERS AND PADDING */
 .container-page, .container-footer {
-    max-width: 700px;
+    max-width: 800px;
     margin: auto;
 }
 
 /* Allow content to have a height of site-footer */
 .container-footer {
+    min-height: inherit;
     height: 100%;
 }
 
@@ -140,10 +144,16 @@ hr {
     padding: 1.5em;
 }
 
+.padding-3em-1-5em {
+    padding: 3em 1.5em;
+}
+
 /* NAV ELEMENTS */
 .nav-bar {
     font-family: 'Fira Mono','Courier New', Courier, monospace;
-    font-size: 1.5rem;
+    /* Experimenting with rem vs em for Fira */
+    /* font-size: 1.5rem; */
+    font-size: 1em;
 }
 
 .nav-bar.flex-row{
@@ -160,6 +170,10 @@ hr {
     margin: 0 0.5em;
 }
 
+.nav-menu a:first-child {
+    display: none;
+}
+
 .screen-reader-text {
     display: none;
 }
@@ -167,15 +181,11 @@ hr {
 /* FOOTER ELEMENTS */
 /* Decides the placement of footer content */
 .footer-bar {
-    position: relative;
-    top: 20%;
+    height: 100%;
+    justify-content: safe flex-end;
     font-family: 'Fira Mono','Courier New', Courier, monospace;
     font-size: 1.5rem;
     color: black;
-}
-
-.footer-bar.flex-col {
-    justify-content: center;
 }
 
 /* flex element */
@@ -236,11 +246,24 @@ hr {
 }
 
 .cursor {
-    position: relative;
-    top: -0.2em;
-    left: 0.2em;
+    /* position: relative; */
+    /* top: -0.2em; */
+    /* left: 0.2em; */
     font-family: 'Fira Mono','Courier New', Courier, monospace;
     color: #ccc;
+}
+
+#dim-backdrop {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ccc;
+    opacity: 0.5;
+}
+
+.hide {
+    display: none;
 }
 
 .logo {
@@ -262,9 +285,12 @@ hr {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
+    width: 100%;
     background-color: white;
     box-shadow: 0 1px 6px 0 #ccc;
-    clip-path: inset(0px 0px -5px 0px);
+    /* code properly renders a one sided box shadow
+    but clip-path clips toggle-nav-menu */
+    /* clip-path: inset(0px 0px -5px 0px); */
 }
 
 #site-footer {
@@ -273,25 +299,73 @@ hr {
     bottom: 0;
     /* Footer should be at least as tall as viewport height */
     min-height: 100vh;
+    height: 100vh;
+    width: 100%;
     background-color: lightslategrey;
+    z-index: 1;
 }
 
-/* everything smaller than 768px? has footer text padding-left away */
-/* everything bigger has footer text has margin-left: 100px away */
-@media only screen and (max-width: 750px) {
-    .logo {
-        font-size: 1.25rem;
-        color: black;
-        text-decoration: none;
+@media only screen and (max-width: 800px) {
+    button.hamburger {
+        z-index: 10;
+    }
+
+    .toggle-nav-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 0;
+        /* Text overflows in a zero width menu—hide it */
+        overflow: hidden;
+       
+        background-color: white;
+        box-shadow: 1px 0 6px 0 dimgrey;
+        transition: width 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+
+    .toggle-nav-menu.flex-col {
+        justify-content: flex-start;
     }
     
-    .nav-menu {
-        font-size: 1rem;
+    .toggle-nav-menu.slide-left {
+        width: 300px;
+        transition: width 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     }
     
-    .nav-menu a {
-        text-decoration: none;
+    .toggle-nav-menu a {
         color: black;
-        margin: 0 0.25em;
+        /* Experimenting with rem vs em for Fira */
+        font-size: 1.2em;
+        padding: 1em 1.5em;
+        margin: 0;
+    }
+
+    .toggle-nav-menu a:first-child {
+        display: inline;
+        margin-top: 5em;
     }
 }
+
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) {} */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 800px) {
+    button.hamburger {
+        display: none;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .container-footer {
+        margin-left: 5em;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {} */

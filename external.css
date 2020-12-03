@@ -1,0 +1,193 @@
+/*!
+ * delicious-hamburgers
+ * @description Beautiful SASS powered hamburger menu toggle buttons
+ * @author Kasper Koman
+ * @link https://github.com/kapoko/delicious-hamburgers
+ */
+button.hamburger {
+  height: 30px;
+  width: 30px;
+}
+
+div.hamburger {
+  height: 30px;
+  width: 30px;
+}
+div.hamburger > .inner {
+  top: 50%;
+}
+
+.hamburger {
+  background-color: transparent;
+  border: 0 transparent solid;
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  opacity: 1;
+  overflow: visible;
+  padding: 3px;
+  text-transform: none;
+  transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.hamburger:hover {
+  background-color: transparent;
+  opacity: 1;
+}
+.hamburger:hover span.bar {
+  background-color: #000;
+}
+.hamburger:hover > .inner:nth-child(1)::before, .hamburger:hover > .inner:nth-child(1)::after, .hamburger:hover > .inner:nth-child(2)::before, .hamburger:hover > .inner:nth-child(2)::after, .hamburger:hover > .inner:nth-child(3)::before, .hamburger:hover > .inner:nth-child(3)::after,
+.hamburger:hover span.bar:nth-child(1)::before,
+.hamburger:hover span.bar:nth-child(1)::after,
+.hamburger:hover span.bar:nth-child(2)::before,
+.hamburger:hover span.bar:nth-child(2)::after,
+.hamburger:hover span.bar:nth-child(3)::before,
+.hamburger:hover span.bar:nth-child(3)::after {
+  background-color: #000;
+}
+.hamburger.active {
+  background-color: transparent;
+}
+.hamburger.active span.bar {
+  background-color: #000;
+}
+.hamburger.active > .inner:nth-child(1)::before, .hamburger.active > .inner:nth-child(1)::after, .hamburger.active > .inner:nth-child(2)::before, .hamburger.active > .inner:nth-child(2)::after, .hamburger.active > .inner:nth-child(3)::before, .hamburger.active > .inner:nth-child(3)::after,
+.hamburger.active span.bar:nth-child(1)::before,
+.hamburger.active span.bar:nth-child(1)::after,
+.hamburger.active span.bar:nth-child(2)::before,
+.hamburger.active span.bar:nth-child(2)::after,
+.hamburger.active span.bar:nth-child(3)::before,
+.hamburger.active span.bar:nth-child(3)::after {
+  background-color: #000;
+}
+.hamburger > .inner {
+  margin: 0;
+  margin-top: -0.5px;
+  position: relative;
+  width: 100%;
+}
+.hamburger span.bar {
+  background-color: #000;
+  border-radius: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  width: 100%;
+}
+.hamburger span.bar:nth-child(1) {
+  top: -6px;
+}
+.hamburger span.bar:nth-child(3) {
+  top: 6px;
+}
+.hamburger:focus {
+  outline: 0;
+}
+
+.hamburger--default.active span.bar {
+  top: 0;
+}
+.hamburger--default.active span.bar:nth-child(1) {
+  transform: rotate(45deg);
+}
+.hamburger--default.active span.bar:nth-child(2) {
+  display: none;
+}
+.hamburger--default.active span.bar:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.hamburger--collapse span.bar {
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s, opacity 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0.25s;
+}
+.hamburger--collapse span.bar::before {
+  background-color: #000;
+  border-radius: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  width: 100%;
+  transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.hamburger--collapse span.bar:nth-child(1), .hamburger--collapse span.bar:nth-child(3) {
+  background: none;
+  top: 0;
+}
+.hamburger--collapse span.bar:nth-child(1) {
+  transform: translate3d(0, -6px, 0);
+}
+.hamburger--collapse span.bar:nth-child(3) {
+  transform: translate3d(0, 6px, 0);
+}
+.hamburger--collapse.active span.bar {
+  transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.hamburger--collapse.active span.bar:nth-child(1), .hamburger--collapse.active span.bar:nth-child(3) {
+  transform: translate3d(0, 0, 0);
+}
+.hamburger--collapse.active span.bar:nth-child(1)::before, .hamburger--collapse.active span.bar:nth-child(3)::before {
+  transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1) 0.15s;
+}
+.hamburger--collapse.active span.bar:nth-child(1)::before {
+  transform: rotate(135deg);
+}
+.hamburger--collapse.active span.bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger--collapse.active span.bar:nth-child(3)::before {
+  transform: rotate(45deg);
+}
+
+.hamburger--stack span.bar {
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s, opacity 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0.25s;
+}
+.hamburger--stack span.bar:nth-child(1), .hamburger--stack span.bar:nth-child(3) {
+  background: none;
+  top: 0;
+}
+.hamburger--stack span.bar:nth-child(1)::before, .hamburger--stack span.bar:nth-child(3)::before {
+  background-color: #000;
+  border-radius: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  width: 100%;
+  transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.hamburger--stack span.bar:nth-child(1) {
+  transform: translate3d(0, -6px, 0);
+}
+.hamburger--stack span.bar:nth-child(3) {
+  transform: translate3d(0, 6px, 0);
+}
+.hamburger--stack.active span.bar {
+  transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.hamburger--stack.active span.bar:nth-child(1), .hamburger--stack.active span.bar:nth-child(3) {
+  transform: translate3d(0, 0, 0);
+}
+.hamburger--stack.active span.bar:nth-child(1)::before, .hamburger--stack.active span.bar:nth-child(3)::before {
+  transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1) 0.15s;
+}
+.hamburger--stack.active span.bar:nth-child(1)::before {
+  transform: rotate(45deg);
+}
+.hamburger--stack.active span.bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger--stack.active span.bar:nth-child(3)::before {
+  transform: rotate(-45deg);
+}
+
+/* delicious-hamburgers */
+/** main.scss contains only imports 
+    @import '<path_to_scss_file>';
+    where the path excludes leading underscores and file extensions
+    */
+
+/*# sourceMappingURL=external.css.map */

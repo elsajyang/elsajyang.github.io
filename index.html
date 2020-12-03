@@ -22,11 +22,20 @@
     </head>
     <body>
         <a class="screen-reader-text" href="#content">Skip Navigation</a>
+        <div id="dim-backdrop" class="hide"></div>
         <header id="site-header">
             <div class="container-page padding-1-5em">
                 <nav class="nav-bar flex-row">
                     <a class="logo" href="./">elsajyang:/ $</a>
-                    <div class="nav-menu flex-row">
+                    <button class="hamburger hamburger--stack" type="button">
+                        <div class="inner">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    <div id="site-nav" class="toggle-nav-menu nav-menu flex-row">
+                        <a class="logo" href="./">elsajyang:/ $</a>
                         <a href="about.html">/about</a>
                         <a href="projects.html">/projects</a>
                         <a href="posts.html">/posts</a>
@@ -60,12 +69,12 @@
                     </article>
                 </section>
                 <footer class="end-content">
-                    <div>:<span class="cursor">▇</span></div>
+                    <div>:<span class="cursor"> ▇</span></div>
                 </footer>
             </div>
         </main>
         <footer id="site-footer">
-            <div class="container-footer padding-1-5em">
+            <div class="container-footer padding-3em-1-5em">
                 <div class="footer-bar flex-col">
                     <section class="social">
                         <p class="terminal first-line">elsayang:/ visitor$ cat socials.txt</p>
@@ -92,5 +101,6 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript" src="hamburger.js"></script>
     </body>
 </html>
