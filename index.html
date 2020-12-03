@@ -5,44 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <title>elsajyang - A Developer's Personal Site</title>
-        <!-- <base href="./"> -->
-        <meta name="author" content="Elsa Yang">
-        <meta name="description" content="elsajyang is a developer's personal site for developers. Inspired by terminal UX/UI. Built in HTML and CSS from scratch. Developed in VSCode using Node.js. Hosted by GitHub Pages.">
-
-        <meta property="og:site_name" content="elsajyang" />
-        <meta property="og:url" content="https://elsajyang.github.io" />
-        <meta property="og:title" content="elsajyang - A Developer's Personal Site" />
-        <!-- <meta property="og:image" content="" /> -->
-        <meta property="og:description" 
-            content="elsajyang is a developer's personal site for developers. Inspired by terminal UX/UI. Built in HTML and CSS from scratch. Developed in VSCode using Node.js. Hosted by GitHub Pages." />
-        <meta name="twitter:card" content="summary"></meta>
-
-        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" text="text/css" href="css/main.css" />
+        <script text="text/javascript" src="js/meta-descriptions.js" defer></script>
     </head>
     <body>
         <a class="screen-reader-text" href="#content">Skip Navigation</a>
         <div id="dim-backdrop" class="hide"></div>
-        <header id="site-header">
-            <div class="container-page padding-1-5em">
-                <nav class="nav-bar flex-row">
-                    <a class="logo" href="./">elsajyang:/ $</a>
-                    <button class="hamburger hamburger--stack" type="button">
-                        <div class="inner">
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                        </div>
-                    </button>
-                    <div id="site-nav" class="toggle-nav-menu nav-menu flex-row">
-                        <a class="logo" href="./">elsajyang:/ $</a>
-                        <a href="about.html">/about</a>
-                        <a href="projects.html">/projects</a>
-                        <a href="posts.html">/posts</a>
-                    </div>
-                </nav>
-            </div>
-        </header>
+        <site-header></site-header>
         <main id="content">
             <div class="container-page padding-1-5em flex-col">
                 <section>
@@ -73,34 +42,8 @@
                 </footer>
             </div>
         </main>
-        <footer id="site-footer">
-            <div class="container-footer padding-3em-1-5em">
-                <div class="footer-bar flex-col">
-                    <section class="social">
-                        <p class="terminal first-line">elsayang:/ visitor$ cat socials.txt</p>
-                        <address class="terminal">
-                            <a href="mailto:elsajy@gmail.com?subject=elsajyang.github.io: ">elsajy@gmail.com</a>
-                            <br><a href="https://github.com/elsajyang" target="_blank" rel="noopener" title="My general GitHub" >github.com/elsajyang</a>
-                        </address>
-                    </section>
-                    <section class="site-description">
-                        <p class="terminal">elsayang:/ visitor$ cat README.md
-                            <br>Inspired by terminal UX/UI.
-                            <br>Built in HTML and CSS from scratch.
-                            <br>Developed in <a class="coding-tools" href="https://code.visualstudio.com/" target="_blank" title="Visual Studio Code is a code editor created by Microsoft.">VSCode</a> using <a class="coding-tools" href="https://nodejs.org/en/" target="_blank" title="Node.js executes JavaScript code outside a web browser. Built on Chrome's V8 JavaScript engine.">Node.js</a>.
-                            <br>Hosted by <a class="coding-tools" href="https://pages.github.com/" target="_blank" title="GitHub Pages hosts static websites directly from (files in) a GitHub repository.">GitHub Pages</a>.
-                            <!-- <br>Open source code in a <a href="" title=""> repo</a>. -->
-                            <!-- <br>Read about this website's dev process. -->
-                        </p>
-                    </section>
-                    <hr>
-                    <section class="copyright">
-                        <p>No Copyright 2020 elsajyang.</p>
-                        <p>Feel free to use whatever you'd like from my site, and credit me or any creators I may have referenced that inspired you.<span class="cursor">▇</span></p>
-                    </section>
-                </div>
-            </div>
-        </footer>
-        <script type="text/javascript" src="js/hamburger.js"></script>
+        <site-footer></site-footer>
+        <script text="text/javascript" src="js/site-header.js" defer></script>
+        <script text="text/javascript" src="js/site-footer.js" defer></script>
     </body>
 </html>
