@@ -1,4 +1,7 @@
-// init state
+// A script that styles hamburger menus 
+// and the responsive site navigation menu
+
+// Variables and constants
 let mql = window.matchMedia('only screen and (max-width: 800px)');
 var dimBackdrop = document.getElementById('dim-backdrop');
 var hamburger = document.querySelector('button.hamburger');
@@ -14,18 +17,22 @@ if (mql.matches) {
 	siteNavMenu.classList.add('nav-menu', 'flex-row');
 }
 
+// Clicking on hamburger icon toggles nav menu
 hamburger.addEventListener('click', function() {
 	hamburger.classList.toggle('active');
 	siteNavMenu.classList.toggle('slide-left');
 	dimBackdrop.classList.toggle('hide');
 });
 
+// Clicking on backdrop closes nav menu
 dimBackdrop.addEventListener('click', function() {
 	hamburger.classList.toggle('active');
-	siteNavMenu.classList.toggle('slide-down');
+	siteNavMenu.classList.toggle('slide-left');
 	dimBackdrop.classList.toggle('hide');
 });
 
+// Screen size determines which nav menu is displayed
+// Screens smaller than 800px must toggle the menu
 mql = window.matchMedia('only screen and (max-width: 800px)');
 mql.addEventListener("change", (screen) => {
 	// Check if the screen width fulfills media query
@@ -39,11 +46,7 @@ mql.addEventListener("change", (screen) => {
 	}
 });
 
-// remove nav-menu
-// add an entire new class with nested nav-menu
-// outside wrapper background dim (when clicked exits toggle-nav-menu)
-// put toggle-nav-menu inside
-
+// Helper Functions
 function toggle(elementID, property, val1, val2) {
 	(function(style, property, val1, val2) {
 		style[property] = style[property] === val1 ? val2 : val1;
