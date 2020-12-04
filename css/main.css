@@ -26,7 +26,8 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Assistant, Helvetica, sans-serif;
-    font-size: 1.5rem;
+    font-weight: 400;
+    font-size: 1.8rem;
     color: #333;
     /* text-rendering: optimizeLegibility; */
     /* to stop flickering of text in safari */
@@ -83,13 +84,6 @@ code a {
     color: #333;
 }
 
-p {
-    font-size: 18px;
-    font-size: 1.8rem;
-    line-height: 1.5em;
-    word-spacing: 1px;
-}
-
 h1, h2, h3 {
     font-family: 'Fira Mono','Courier New', Courier, monospace;
     font-weight: 400;
@@ -103,13 +97,22 @@ h1 {
 
 h2 {
     font-size: 2.0rem;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #eee;
 }
 
 h3 {
     font-size: 1.8rem;
+    font-weight: 600;
 }
 
-h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child) {
+h4 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+h1:not(:first-child), h2:not(:first-child) {
     margin-top: 2em;
 }
 
@@ -117,8 +120,19 @@ h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-
 but extends past container on both ends */
 hr {
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ddd;
     margin: 20px -16px;
+}
+
+p {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.5em;
+    word-spacing: 1px;
+}
+
+main p {
+    margin-left: 2em;
 }
 
 /* CONTAINERS AND PADDING */
@@ -155,8 +169,8 @@ hr {
 .nav-bar {
     font-family: 'Fira Mono','Courier New', Courier, monospace;
     /* Experimenting with rem vs em for Fira */
-    /* font-size: 1.5rem; */
-    font-size: 1em;
+    font-size: 1.5rem;
+    /* font-size: 1em; */
 }
 
 .nav-bar.flex-row{
@@ -230,7 +244,7 @@ hr {
 }
 
 .post-card p {
-    margin: 0 0 0 2.5em;
+    margin: 0 0 0 2em;
 }
 
 .post-title {
@@ -286,7 +300,6 @@ hr {
 
 #site-header {
     position: sticky;
-    position: -webkit-sticky;
     top: 0;
     width: 100%;
     background-color: white;
@@ -339,7 +352,7 @@ hr {
     .toggle-nav-menu a {
         color: black;
         /* Experimenting with rem vs em for Fira */
-        font-size: 1.2em;
+        font-size: 1.8rem;
         padding: 1em 1.5em;
         margin: 0;
     }
