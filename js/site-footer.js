@@ -15,7 +15,7 @@ var footer = `<footer id="site-footer">
                 <br>Built in HTML and CSS from scratch.
                 <br>Developed in <a class="coding-tools" href="https://code.visualstudio.com/" target="_blank" title="Visual Studio Code is a code editor created by Microsoft.">VSCode</a> using <a class="coding-tools" href="https://nodejs.org/en/" target="_blank" title="Node.js executes JavaScript code outside a web browser. Built on Chrome's V8 JavaScript engine.">Node.js</a>.
                 <br>Hosted by <a class="coding-tools" href="https://pages.github.com/" target="_blank" title="GitHub Pages hosts static websites directly from (files in) a GitHub repository.">GitHub Pages</a>.
-                <!-- <br>Open source code in a <a href="" title=""> repo</a>. -->
+                <br><a href="https://github.com/elsajyang/elsajyang.github.io" target="_blank" title="">Open source code</a> for this site.
                 <!-- <br>Read about this website's dev process. -->
             </p>
         </section>
