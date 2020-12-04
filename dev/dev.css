@@ -1,0 +1,207 @@
+@import 'https://code.cdn.mozilla.net/fonts/fira.css';
+@import 'https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500&display=swap';
+
+/* To-do: Uncomment box sizing comments */
+*, *::after, *::before {
+    box-sizing: border-box;
+    /* -webkit-box-sizing: border-box; */
+    /* -moz-box-sizing: border-box; */
+}
+
+/* html {
+    background-color: indianred;
+    margin: 0;
+    height: 100%;
+    font-size: 1rem;
+} */
+
+/* body {
+    background-color: honeydew;
+    margin: 0;
+    height: 100%;
+    font-size: 1rem;
+} */
+
+/* Better of them choices */
+html {
+    background-color: white;
+    height: 100vh;
+    font-size: 100%;
+}
+
+/* Note: Flexbox does not collapse margins */
+body {
+    /* Removes browser default margins */
+    margin: 0;
+    /* Formats footer */
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    text-rendering: optimizeLegibility;
+}
+
+main {
+    background-color: white;
+    z-index: 1;
+    /* Formats footer */
+    flex: 1 0 auto;
+}
+
+p {
+    font-family: Assistant, Helvetica, sans-serif;
+    font-size: 20px;
+    font-size: 1.25em;      
+    line-height: 1.5em;
+    word-spacing: 1px;
+}
+
+.container-page {
+    max-width: 800px;
+    margin: auto;
+}
+
+.padding-1-5em {
+    padding: 1.5em;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+#site-header {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 2;
+    /* fixed makes header a span */
+    background-color: white;
+    box-shadow: 0 1px 6px 0 #ccc;
+    clip-path: inset(0px 0px -5px 0px);
+}
+
+/* #site-header::before {
+    bottom: 8px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+
+#site-header::after {
+    bottom: 8px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+} */
+
+#site-footer {
+    /* Disallow shrink */
+    flex-shrink: 0;     
+    bottom: 0;
+    /* to fill viewport */
+    height: 100%;
+    background-color: lightslategrey;
+}
+
+/* down is good  */
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-bar {
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1.15em;
+}
+
+.nav-bar.flex-row{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu.flex-row{
+    justify-content: space-between;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: black;
+    margin: 0em 0.5em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px -16px;
+}
+
+.container-vh {
+    /* Inherits height of viewport */
+    height: 100vh;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Decides the placement of footer content */
+.footer-bar {
+    /* Inherits height of viewport */
+    height: 100%;
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: black;
+}
+
+.footer-bar.flex-col {
+    justify-content: center;
+}
+
+/* .footer-bar is a flex container, and section is a flex element */
+.footer-bar section {
+    margin: 0.5em 0;
+}
+
+.footer-bar a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-bar hr {
+    border-color: white;
+}
+
+.footer-bar p {
+    font-family: 'Fira Mono','Courier New', Courier, monospace;
+    font-size: 1em;
+    color: black;
+}
+
+.footer-bar .cursor {
+    color: black;
+}
+
+/* up is good */
+
+.opener {
+    height: 100%;
+    /* background-color: #333;
+    color: white; */
+}
+
+.opener .flex-col {
+    justify-content: center;
+}
+
+.terminal {
+    font-family: 'Fira Mono', 'Courier New', Courier, monospace;
+}
+
+.terminal.first-line {
+    margin-bottom: 0;
+}
