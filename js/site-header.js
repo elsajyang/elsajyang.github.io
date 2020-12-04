@@ -15,7 +15,7 @@ var header = `
             </button>
             <div id="site-nav" class="toggle-nav-menu nav-menu flex-row">
                 <a class="logo" href="./">elsajyang:/ $</a>
-                <a href="about.html">/about</a>
+                <a href="about.html">/about.md</a>
                 <a href="projects.html">/projects</a>
                 <a href="posts.html">/posts</a>
             </div>
@@ -53,7 +53,7 @@ function addScript(type, src, defer) {
 //             </button>
 //             <div id="site-nav" class="toggle-nav-menu nav-menu flex-row">
 //                 <a class="logo" href="./">elsajyang:/ $</a>
-//                 <a href="about.html">/about</a>
+//                 <a href="about.html">/about.md</a>
 //                 <a href="projects.html">/projects</a>
 //                 <a href="posts.html">/posts</a>
 //             </div>

@@ -131,7 +131,7 @@ p {
     word-spacing: 1px;
 }
 
-main p {
+main p, main p~ul {
     margin-left: 2em;
 }
 
