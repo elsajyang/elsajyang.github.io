@@ -1,5 +1,5 @@
-// A script that styles hamburger menus 
-// and the responsive site navigation menu
+// A script that styles a responsive 
+// hamburger style site navigation menu
 
 // Variables and constants
 let mql = window.matchMedia('only screen and (max-width: 800px)');
@@ -27,18 +27,20 @@ hamburger.addEventListener('click', function() {
 // Clicking on backdrop closes nav menu
 dimBackdrop.addEventListener('click', function() {
 	hamburger.classList.toggle('active');
-	siteNavMenu.classList.toggle('slide-left');
+	siteNavMenu.classList.remove('slide-left');
 	dimBackdrop.classList.add('hidden');
 });
 
 // Screen size determines which nav menu is displayed
-// Screens smaller than 800px must toggle the menu
+// Screens smaller than 800px must use the toggle menu
 mql = window.matchMedia('only screen and (max-width: 800px)');
 mql.addEventListener("change", (screen) => {
 	// Check if the screen width fulfills media query
 	if (screen.matches) {
+		if (siteNavMenu.classList.contains('slide-left')) {
+			dimBackdrop.classList.remove('hidden');
+		}
 		siteNavMenu.classList.remove('nav-menu', 'flex-row');
-		// On a screen resize, we need to hide menu animations
 		siteNavMenu.classList.add('toggle-nav-menu', 'flex-col');
 	} else {
 		siteNavMenu.classList.remove('toggle-nav-menu', 'flex-col');
