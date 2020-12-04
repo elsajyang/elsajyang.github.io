@@ -21,14 +21,14 @@ if (mql.matches) {
 hamburger.addEventListener('click', function() {
 	hamburger.classList.toggle('active');
 	siteNavMenu.classList.toggle('slide-left');
-	dimBackdrop.classList.toggle('hide');
+	dimBackdrop.classList.toggle('hidden');
 });
 
 // Clicking on backdrop closes nav menu
 dimBackdrop.addEventListener('click', function() {
 	hamburger.classList.toggle('active');
 	siteNavMenu.classList.toggle('slide-left');
-	dimBackdrop.classList.toggle('hide');
+	dimBackdrop.classList.add('hidden');
 });
 
 // Screen size determines which nav menu is displayed
@@ -42,6 +42,7 @@ mql.addEventListener("change", (screen) => {
 		siteNavMenu.classList.add('toggle-nav-menu', 'flex-col');
 	} else {
 		siteNavMenu.classList.remove('toggle-nav-menu', 'flex-col');
+		dimBackdrop.classList.add('hidden');
 		siteNavMenu.classList.add('nav-menu', 'flex-row');
 	}
 });
