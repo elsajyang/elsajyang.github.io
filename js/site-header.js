@@ -5,7 +5,7 @@ var header = `
 <header id="site-header">
     <div class="container-page padding-1-5em">
         <nav class="nav-bar flex-row">
-            <a class="logo" href="./">elsajyang:/ $</a>
+            <a class="logo" href="/">elsajyang:/ $</a>
             <button class="hamburger hamburger--stack" type="button">
                 <div class="inner">
                     <span class="bar"></span>
@@ -14,10 +14,10 @@ var header = `
                 </div>
             </button>
             <div id="site-nav" class="toggle-nav-menu nav-menu flex-row">
-                <a class="logo" href="./">elsajyang:/ $</a>
-                <a href="about.html">/about.md</a>
-                <a href="projects.html">/projects</a>
-                <a href="posts.html">/posts</a>
+                <a class="logo" href="/">elsajyang:/ $</a>
+                <a href="/about.html">/about.md</a>
+                <a href="/projects.html">/projects</a>
+                <a href="/posts.html">/posts</a>
             </div>
         </nav>
     </div>
@@ -25,8 +25,10 @@ var header = `
 `;
 var main = document.getElementsByTagName('main');
 main[0].insertAdjacentHTML("beforebegin", header);
+console.log("Successfully rendered site-header. See /js/site-header.js for more.");
 
-addScript('text/javascript', 'js/hamburger.js', true);
+addScript('text/javascript', '/js/hamburger.js', true);
+console.log("Successfully added hamburger menu script. See /js/site-header.js for more.");
 
 /* Helper Functions */
 function addScript(type, src, defer) {

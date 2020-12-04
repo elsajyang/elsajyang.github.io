@@ -43,3 +43,5 @@ addMetaProperty('og:site_name', siteName);
 addMetaProperty('og:url', url);
 addMetaProperty('og:title', siteTitle);
 addMetaProperty('og:description', description);
+console.log("Successfully added descriptive metadata. See /js/meta-descriptions.js for more.");
+

@@ -29,6 +29,7 @@ var footer = `<footer id="site-footer">
 </footer>`;
 var main = document.getElementsByTagName('main');
 main[0].insertAdjacentHTML("afterend", footer);
+console.log("Successfully rendered site-footer. See /js/site-footer.js for more.");
 
 // 2. (UNUSED) Create a custom site-footer element
 // const footerTemplate = document.createElement('template');
