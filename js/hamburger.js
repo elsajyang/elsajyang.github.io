@@ -37,6 +37,8 @@ mql = window.matchMedia('only screen and (max-width: 800px)');
 mql.addEventListener("change", (screen) => {
 	// Check if the screen width fulfills media query
 	if (screen.matches) {
+		// Maintain state of window even upon resizing
+		// If toggle menu was open upon resizing, restore state
 		if (siteNavMenu.classList.contains('slide-left')) {
 			dimBackdrop.classList.remove('hidden');
 		}
@@ -44,6 +46,7 @@ mql.addEventListener("change", (screen) => {
 		siteNavMenu.classList.add('toggle-nav-menu', 'flex-col');
 	} else {
 		siteNavMenu.classList.remove('toggle-nav-menu', 'flex-col');
+		// Always hide nav menu backdrop in the absence of toggle menu
 		dimBackdrop.classList.add('hidden');
 		siteNavMenu.classList.add('nav-menu', 'flex-row');
 	}
