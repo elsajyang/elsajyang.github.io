@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" text="text/css" href="/css/main.css" />
+        <script text="text/javascript" src="/js/meta-descriptions.js" defer></script>
+    </head>
+    <body>
+        <a class="screen-reader-text" href="#content">Skip Navigation</a>
+        <div id="dim-backdrop" class="hidden"></div>
+        <main id="content">
+            <div class="container-page padding-1-5em flex-col">
+                <article id="2020-11-20" class="post">
+                    <header>
+                        <div style="text-align: right;"><i>Last updated: <time datetime="2020-11-20">2020 December 4</time></i></div>
+                        <div style="text-align: right;"><i>First appeared: <time datetime="2020-11-20">2020 November 20</time></i></div>
+                        <h1 class="post-title">
+                            a developer's nightmare
+                        </h1>
+                    </header>
+
+                    <p>I wanted to build a website. This website. And somehow I ended up googling "how to run a program in terminal."
+                    
+                    <blockquote>... while trying to run the command <code><a class="coding-tools" href="https://browsersync.io/">browser-sync</a></code>, a Node package I installed locally to help refresh pages automatically for web development, on the command line. The answer could not be found on <a href="https://browsersync.io/docs" target="_blank">browser-sync's website</a>, but I quickly found <a href="https://stackoverflow.com/a/55859171">BrowserSync: command not found after installing locally</a>.</blockquote>
+                    
+                    <p>The answer I found to my question worked, but I couldn't say I fully understood it because I never fully understood <code>PATH</code>. I tried to comprehend <code>PATH</code> again, but this time in a roundabout way—I googled "how to run a program in terminal."</p>
+
+                    <p>Fortunately, I was able to put together the pieces after reading <a href="https://unix.stackexchange.com/questions/4430/why-do-we-use-dot-slash-to-execute-a-file-in-linux-unix">why do we use a "./" (dot slash) to execute a file in Linux/UNIX</a> and rereading <a href="https://superuser.com/a/284351">What are PATH and other environment variables, and how can I set or use them?</a> And luckily I found an <a href="https://unix.stackexchange.com/a/573004">answer</a> that was beautifully put. But like most answers I find, the answer is only as good as the question posed. And the question posed on the StackExchange post assumed that I, the reader, had to have some exposure to or a general idea of the following:</p>
+
+                    <ul>
+                    <li><code>PATH</code>, the environment variable, and how an OS (operating system) uses it</li>
+                    <li><a href="https://www.w3schools.com/html/html_filepaths.asp">absolute paths vs relative paths</a></li>
+                    <li>path resolution</li>
+                    <li>how one runs commands via command line</li>
+                    <li>how programs are "usually" run</li>
+                    </ul>
+
+                    <p>Can you see how the first bullet point is tragic? (And yes, I learned <code>PATH</code> by relearning <code>PATH</code>) Can you see how that last bullet point is ironic? Imagine if I were a novice who simply wanted to know "how to run a program in terminal?"</p>
+
+                    <blockquote>I'm reminded of "CS162: Operating Systems," a course I took as an undergraduate. I can still remember how utterly <em>confused</em> I was trying to implement Project 1: User Programs and System Calls and HW2: Shell. The confusion was <em>conceptual</em>, and some of it plain jargon—what is a shell? what are system calls? In the end, it was the select resources I perused and my fellow honor society peers I seeked out for help that made things click.</blockquote>
+
+                    <p>They are always saying "just Google it." They aren't wrong—I manage to find what I'm looking for. Problem solving is fantastic. Struggling while problem solving is necessary. But mindlessly trying to solve an undefined problem is not.</p>
+                        
+                    <p>Often the problem is, where does one start the search? What jargon or keywords should we use in the search process? The search process often requires my undergraduate CS knowledge and experience, or the intuition gained from exposure, or copious amounts of time scanning through each link until I finally get a sense of what's happening.</p>
+
+                    <blockquote>I spent hours trying to configure and run <code>browser-sync</code> only to find that the solution was quite simple. The solution isn't well documented, and I contend requires both a developer's intuition for command line and conceptual knowledge of how to run programs.</blockquote>
+
+                    <p>One experiences both beauty and torment as a developer, as one does riding a rollercoaster. When things don't work, it's frustrating. But when they do, it's pure bliss. Then you find yourself back where you started, like code in a while (true) loop.</p>
+
+                    <p>I've arrived back where I started. But this time it's different—I'd ridden the ride.</p>
+
+                    <p>The following posts hope to consolidate my findings in one place for my reference as well as streamline the developer's ride for someone else.</p>
+                </article>
+                <footer class="end-content">
+                    <div>: <span class="cursor">▇</span></div>
+                </footer>
+            </div>
+        </main>
+        <script text="text/javascript" src="/js/site-header.js" defer></script>
+        <script text="text/javascript" src="/js/site-footer.js" defer></script>
+    </body>
+</html>

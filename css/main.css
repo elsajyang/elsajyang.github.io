@@ -64,19 +64,18 @@ address {
 }
 
 blockquote {
-    position: relative;
-    left: 5px;
     border-left: 3px solid #555;
     background-color: #eee;
     color: dimgray;
     font-family: 'Fira Mono','Courier New', Courier, monospace;
-    font-size: 1.3rem;
-    padding-left: 1.5em;
+    font-size: 1.5rem;
+    padding: 1.5em 2em;
 }
 
 code {
     background-color: aliceblue;
-    line-height: initial;
+    font-size: 1.8rem;
+    line-height: 1.5em;
     word-spacing: initial;
 }
 
@@ -112,7 +111,7 @@ h4 {
     margin: 0;
 }
 
-h1:not(:first-child), h2:not(:first-child) {
+h1:not(:first-of-type), h2:not(:first-of-type) {
     margin-top: 2em;
 }
 
@@ -235,26 +234,21 @@ main p, main p~ul {
 
 /* POST ELEMENTS */
 /* !!! everything in post has not been audited */
-.post p {
-    font-family: Assistant, Helvetica, sans-serif;
-    font-size: 1.25rem;      /* font-size: 20px; */
-    line-height: 1.5em;
-    word-spacing: 1px;
-    color: #333;
+
+.post-card p:first-of-type {
+    margin-top: 0;
 }
 
-.post-card p {
-    margin: 0 0 0 2em;
-}
-
-.post-title {
+.post-card .post-title {
     margin-bottom: 0;
+    font-weight: 500;
     text-transform: uppercase;
 }
 
 .post-link {
     text-decoration: none;
-    font-weight: 500;
+    /* font-weight: 500; */
+    /* text-transform: uppercase; */
 }
 
 /* ADDITIONAL DESIGN ELEMENTS */
