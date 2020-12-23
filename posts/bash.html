@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" text="text/css" href="/css/main.css" />
+        <script text="text/javascript" src="/js/meta-descriptions.js" defer></script>
+    </head>
+    <body>
+        <a class="screen-reader-text" href="#content">Skip Navigation</a>
+        <div id="dim-backdrop" class="hidden"></div>
+        <main id="content">
+            <div class="container-page padding-1-5em flex-col">
+                <article id="bash" class="post">
+                    <header>
+                        <div style="text-align: right;"><i>Last updated: <time datetime="2020-12-23">2020 December 23</time></i></div>
+                        <div style="text-align: right;"><i>First appeared: <time datetime="2020-12-23">2020 December 23</time></i></div>
+                        <h1 id="bash" class="post-title">
+                            bash: a conceptual and reference guide
+                        </h1>
+                    </header>
+                    <h2 id="why-bash-">Why bash?</h2>
+                    <p>You might have seen an app called &quot;shell&quot; or &quot;terminal&quot; or &quot;command line prompt&quot; lurking around in your computer. Although you may have seldom opened it, you&#39;ll soon find out it is a powerful tool that every computer programmer should know.</p>
+                    <p>When you click on a program on your computer, say a browser like Google Chrome, your computer does some magic to open the program and display it. Or when you click and drag a folder to move it somewhere else, the computer processes those changes. Even when you use a notepad program to create and save a file like <code>hello.txt</code>, the computer is opening the program, creating a file, and saving the file. The question is, can we do these simple tasks just by typing a few commands somewhere? If so, how?</p>
+                    <p>All tasks, from opening a program to creating, moving, and deleting files, can be performed by feeding commands to the computer. Each operating system, the software that runs on a computer, has its own program to perform the commands:</p>
+                    <ul>
+                    <li>The <a href="https://ubuntu.com/tutorials/command-line-for-beginners">Linux command line</a> in Linux</li>
+                    <li>Terminal in macOS</li>
+                    <li>Command Prompt in Windows </li>
+                    </ul>
+                    <p>Although the terms <a href="https://askubuntu.com/questions/506510/what-is-the-difference-between-terminal-console-shell-and-command-line">shell, prompt, console, or command line</a> are often used interchangeably, they refer to slightly different things. The semantics of each term can be traced back to the history of computers, but those meanings have also evolved over time. Terminals were once simply monitors with keyboards, and consoles were physical terminals. Command line describes how users can type a line of command and execute it, and a shell is a program that executes commands.</p>
+                    <p>On a Unix-like operating system like macOS, we can execute the following lines in Terminal to create an empty file called <code>hello.txt</code>, give it some contents, and print the contents:</p>
+<blockquote><code class="lang-bash">$ touch hello<span class="">.txt</span>
+$ echo <span class="">"hello world"</span> &gt; hello<span class="">.txt</span>
+$ cat hello<span class="">.txt</span>
+hello world
+</code></blockquote>
+                    <p>In this guide we explore</p>
+                    <ul>
+                    <li><code>bash</code>, a Unix shell</li>
+                    <li>the relationship between shells and terminals</li>
+                    <li>general shell commands</li>
+                    <li>basic bash scripts</li>
+                    <li>the bash environment</li>
+                    </ul>
+                    <p>To learn more on how to write bash scripts and set up the bash environment, continue to <a href="https://tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html">Bash Guide for Beginners</a></p>
+                    <h2 id="what-is-bash-">What is <code>bash</code>?</h2>
+                    <p><code>bash</code> is a <strong>Unix shell</strong> that replaced <a href="https://en.wikipedia.org/wiki/Bourne_shell">Stephen Bourne&#39;s <code>sh</code></a>, which is why it is hilariously named <strong>Bourne Again Shell</strong>.</p>
+                    <p><code>bash</code> is a <strong>shell</strong>, a terminal application that executes commands. It serves as an interface to an operating system—users provide commands, and the OS performs them. <code>bash</code> is the default shell for many operating systems, but many other shells exist like <code>tsch</code>, <code>zsh</code>, the Korn shell <code>ksh</code>, <code>fish</code>, and more.</p>
+                    <p><code>bash</code> is a Unix shell, which has come to mean a command interpreter and a programming language. It accepts commands from a keyboard or reads commands from a file. Like any high-level language, the shell provides variables, flow control, functions, and quoting (escaping).</p>
+                    <ul>
+                    <li>Most Linux commands are really programs that are executed by the shell. Examples include <code>ls</code>, <code>pwd</code>, <code>cd</code></li>
+                    </ul>
+                    <p>A shell and a terminal are different, though the fact that opening Terminal on macOS boots <code>bash</code> makes their differences less obvious. A <strong>terminal</strong> is a program that opens a window and lets you interact with the shell.</p>
+                    <p>In bash, the default prompt symbol is a dollar symbol <code>$</code>, though you can configure it to be something else.</p>
+                    <h2 id="shell-commands">Shell Commands</h2>
+                    <p>When we open a terminal program, the program boots up a shell which prompts for a command line.</p>
+                    <p>The first word we provide to the command line is executed by the shell, and the rest are arguments to the command. For instance,</p>
+<pre><code class="lang-bash">$ <span class="">PATH</span>
+-bash: <span class="">PATH</span>: command <span class="">not</span> found
+</code></pre>
+                    <p><code>PATH</code> is just a value—an environment variable— and can&#39;t be executed, so bash prints an error message. Whereas</p>
+<blockquote><code class="lang-bash">$ echo $PATH
+<span class="">/</span>usr<span class="">/local/</span><span class="">bin:</span><span class="">/usr/</span><span class="">bin:</span><span class="">/bin:/</span>usr<span class="">/sbin:/</span>sbin
+</code></blockquote>
+                    <p>echos the value of its argument, i.e. prints the value of <code>PATH</code> to stdout (stdout is what is displayed in the terminal).</p>
+                    <p>The <code>$</code> signals that all subsequent characters should be read as a whole and evaluated as an environment variable. Environment variables are case sensitive. For instance, <a href="https://unix.stackexchange.com/a/111561"><code>$PWD</code> AND <code>$PWDx</code> are different</a>. </p>
+
+<blockquote><pre><code class="lang-bash">$ <span class="">echo</span> <span class="">$pwd</span>
+
+$ <span class="">echo</span> <span class="">$PWD</span>
+/Users/ilikepie
+$ <span class="">echo</span> <span class="">$PWDx</span>
+
+</code></pre></blockquote>
+                    <p>If we wanted the value of <code>$PWD</code> appended with an x like in <code>/Users/ilikepiex</code>, we would need to do <code>echo ${PWD}x</code>. The <code>${}</code> evaluates the variable inside it and replaces the whole thing with the value. In this case, <code>${PWD}</code> evaluates to <code>/Users/ilikepie</code>.</p>
+                    <h2 id="reference">Reference</h2>
+                    <p>A list of common commands and tips</p>
+                    <ul>
+                    <li><a href="https://github.com/awesome-lists/awesome-bash">Awesome Bash</a></li>
+                    </ul>
+                    <h4 id="relative-and-absolute-paths">Relative and Absolute Paths</h4>
+                    <ul>
+                    <li><code>cat /etc/paths</code><ul>
+                    <li>returns all them <code>bin</code>, <code>sbin</code>, and <code>local</code> shit</li>
+                    </ul>
+                    </li>
+                    <li>whereas <code>cat etc/paths</code> returns <code>No such file or directory</code></li>
+                    </ul>
+                    <h4 id="the-home-environment-variable">The <code>HOME</code> environment variable</h4>
+                    <p><code>$HOME</code> or <code>~</code></p>
+                    <ul>
+                    <li>Returns the path to a user&#39;s home directory, e.g. <code>/Users/ilikepie</code></li>
+                    <li>Can go to a user&#39;s home directory via <code>cd $HOME</code> or <code>cd ~</code></li>
+                    </ul>
+                    <h4 id="input-output">Input/Output</h4>
+                    <ul>
+                    <li>Most Linux commands and programs use the concepts <strong>standard input</strong> and <strong>standard output</strong>.</li>
+                    <li>Standard input is a stream of data which the program reads (for instance, your keyboard)</li>
+                    <li>and standard output is a stream of data written by the program (your screen)</li>
+                    </ul>
+                    <h4 id="redirection">Redirection</h4>
+                    <ul>
+                    <li>A shell allows you to <strong>redirect</strong> standard input (usually comes from your keyboard) and standard output (data written to the screen).</li>
+                    <li><code>$ cat &lt; fileA &gt; fileB</code> reads from fileA, as opposed to stdin, and writes to fileB</li>
+                    </ul>
+                    <h4 id="pipe">Pipe</h4>
+                    <ul>
+                    <li>A shell can <strong>pipe</strong>, using the <code>|</code> symbol, the output of one program to the input of another.</li>
+                    <li><code>$ cat fileA | wc -w</code></li>
+                    </ul>
+                    <h4 id="-commands-"><code>$([commands])</code></h4>
+                    <ul>
+                    <li><code>$</code> executes the output of <code>[commands]</code><ul>
+                    <li><code>$(boot2docker shellinit)</code></li>
+                    </ul>
+                    </li>
+                    </ul>
+                    <h4 id="-grep-"><code>grep</code></h4>
+                    <ul>
+                    <li><strong>grep</strong> looks for a given string in files. It is case sensitive (to ignore cases, use <code>-i</code> flag )</li>
+                    <li><code>grep [string] [filename]</code></li>
+                    <li><code>[^_]write ?\(</code> takes out _ and finds write (</li>
+                    </ul>
+                    <h4 id="-find-"><code>find</code></h4>
+                    <ul>
+                    <li>finds file or files that meet the search criteria (name, size, file type, etc.)</li>
+                    <li>find [starting directory] [options] [search term]</li>
+                    <li>starting directory can be <code>/</code> (the whole system), <code>.</code> (working directory), <code>~</code> (home directory)</li>
+                    <li><code>-name</code>, <code>-user</code>, <code>-size</code></li>
+                    </ul>
+                    <h4 id="-echo-vs-cat-https-unix-stackexchange-com-a-363638-"><a href="https://unix.stackexchange.com/a/363638"><code>echo</code> vs <code>cat</code></a></h4>
+                    <ul>
+                    <li><code>echo</code> echos its arguments as a string to stdout</li>
+                    <li><code>cat</code> accepts files or stdin as arguments, concatenates their contents, and prints the entire thing as a string to stdout</li>
+                    </ul>
+                    <h2 id="writing-scripts">Writing Scripts</h2>
+                    <p>We can write scripts (programs) using shell commands. </p>
+                    <ul>
+                    <li>To create a script, we first create a file in <code>~/bin</code>. The file&#39;s name is used to call the script.</li>
+                    <li>Each script starts with a &quot;shebang&quot; <code>#!</code>, followed by which shell you want to use run the script, supplied as the path to the shell.
+                    <blockquote><code class="lang-bash"><div class="">#! /bin/bash</div>
+                    <div class=""># A script that prints the word count of ---</div>
+                    <div># Do stuff</div>
+                    </code></blockquote>
+                    </li>
+                    <li>Then, we must make the file executable using <code>chmod</code>
+                    <blockquote><code class="lang-bash"><span class="">$ </span>chmod +x ~<span class="">/bin/countc</span>
+                    </code></blockquote>
+                    or if we want to make the file rwx only for you, the current user
+                    <blockquote><code class="lang-bash"><span class="">$ </span>chmod <span class="">700</span> ~<span class="">/bin/countc</span>
+                    </code></blockquote>
+                    </li>
+                    <li>Now we can call the script by its name like any other program
+                    <blockquote><code class="lang-bash"><span class="">$ </span>countc
+                    <span class="">45</span>
+                    </code></blockquote>
+                    </li>
+                    </ul>
+
+                    <h3 id="interactive-scripts">Interactive scripts</h3>
+                    <ul>
+                    <li>Scripts are like programs. We can pass them arguments, which they can store and do things.
+                    <blockquote><code class="lang-bash"><div class="">#! ~/bin/bash</div>
+                    <div class="">echo $1 #takes the name of the first command line argument</div>
+                    <div class="">echo -e "Please enter your name: "</div>
+                    <div class="">read name</div>
+                    <div class="">echo "Nice to meet you $name"</div>
+                    </code></blockquote>
+                    </li>
+                    </ul>
+                    <h2 id="a-note-on-bash-profiles-rc-and-aliases">A note on bash profiles, rc, and aliases</h2>
+                    <p>According to <code>man bash</code>, </p>
+                    <blockquote>
+                    <p>When bash is invoked as an <strong>interactive login shell</strong>, or as a non-interactive shell with the --login option, it first reads and executes commands from the file <strong>/etc/profile</strong>, if that file exists. After reading that file, it looks for <strong>~/.bash_profile, ~/.bash_login, and ~/.profile</strong>, in that order, and reads and executes commands from the first one that exists and is readable. The --noprofile option may be used when the shell is started to inhibit this behavior.</p>
+                    </blockquote>
+                    <p>That is, in the order </p>
+                    <ul>
+                        <li>/etc/profile</li>
+                        <li>-> /etc/profile.d/* (in alphabetical order)</li>
+                        <li>-> ~/.bash_profile</li>
+                        <li>-> ~/.bash_login</li> 
+                        <li>-> ~/.profile</li>
+                    </ul>
+                    <blockquote>
+                    <p>When an <strong>interactive shell</strong> that is <strong>not a login shell</strong> is started, bash reads and executes commands from <strong>/etc/bash.bashrc</strong> and <strong>~/.bashrc</strong>, if these files exist. This may be inhibited by using the --norc option. The --rcfile file option will force bash to read and execute commands from file instead of /etc/bash.bashrc and ~/.bashrc.</p>
+                    </blockquote>
+                    <h3 id="editing-bash-related-files">Editing ~/.bash* related files</h3>
+                    <p><code>~/.bash_profile</code> should be kept simple. It should just load <code>.profile</code> and <code>.bashrc</code> in that order.</p>
+                    <ul>
+                    <li>Loading <code>.bashrc</code> might look like <code class="lang-bash">[ -r <span class="">$HOME</span>/<span class="">.bashrc</span> ] &amp;&amp; source <span class="">$HOME</span>/.bashrc
+                    </code>
+                    </li>
+                    </ul>
+                    <p><code>~/.profile</code> is used for login shells, and <code>~/.bashrc</code> runs every time a new terminal window is opened.</p>
+                    <ul>
+                    <li>Anything that should be available <em>only</em> to login shells should go in <code>~/.profile</code></li>
+                    <li><code>~/.bashrc</code> must not output anything</li>
+                    </ul>
+                    <p><code>~/.profile</code> has the stuff NOT specifically related to bash, such as environment variables (<code>PATH</code> and more)</p>
+                    <ul>
+                    <li><code>~/.profile</code> must be compatible with any <code>/bin/sh</code> shell</li>
+                    </ul>
+                    <p><code>~/.bashrc</code> is executed when you are already logged in and you open a new terminal window, or when you run a new bash instance (by calling <code>/bin/bash</code>).</p>
+                    <p>Since <code>~/.bashrc</code> is run every time an interactive non-login shell starts, have <code>~/.bashrc</code> contain commands you&#39;d want at an interactive command line. </p>
+                    <ul>
+                    <li>A text editor, bash aliases</li>
+                    </ul>
+                    <p>TLDR;</p>
+                    <ul>
+                    <li><code>.bash_profile</code>: executed for login shells</li>
+                    <li>Upon startup, Mac OS X Terminal runs a login shell by default. .bash_profile is executed.
+                    .bashrc: executed for non-login shells</li>
+                    </ul>
+
+
+                    <footer class="end-content">
+                        <div>: <span class="cursor">▇</span></div>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        <script text="text/javascript" src="/js/site-header.js" defer></script>
+        <script text="text/javascript" src="/js/site-footer.js" defer></script>
+    </body>
+</html>
