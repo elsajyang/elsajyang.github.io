@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" text="text/css" href="/css/main.css" />
+        <script text="text/javascript" src="/js/meta-descriptions.js" defer></script>
+    </head>
+    <body>
+        <a class="screen-reader-text" href="#content">Skip Navigation</a>
+        <div id="dim-backdrop" class="hidden"></div>
+        <main id="content">
+            <div class="container-page padding-1-5em flex-col">
+                <article id="bash" class="post">
+                    <header>
+                        <div style="text-align: right;"><i>Last updated: <time datetime="2020-12-23">2020 December 23</time></i></div>
+                        <div style="text-align: right;"><i>First appeared: <time datetime="2020-12-23">2020 December 23</time></i></div>
+                        <h1 id="how-i-built">
+                            how I built a static personal website from scratch
+                        </h1>
+                    </header>
+                    <p>A guide to building a static website from scratch.</p>
+                    <h2 id="0-the-web">0: The Web</h2>
+                    <p>Keywords</p>
+                    <ul>
+                    <li>The Web vs the Internet</li>
+                    <li>Internet Protocol (IP)</li>
+                    <li>URLs (Uniform Resource Locators), web resources</li>
+                    <li>Websites, Web Browsers, Web Servers</li>
+                    <li>HTTP (Hypertext Transfer Protocol), protocols</li>
+                    <li>Serverless computing</li>
+                    </ul>
+                    <p>To understand how to build a website, it is useful to understand the infrastructure which supports it. We start with the Web.</p>
+                    <p>The Web and the Internet are often used interchangeably, though they are actually two different things.</p>
+                    <blockquote>
+                    <p>What do you associate with the Web? The Internet? What would you say differentiates them?</p>
+                    </blockquote>
+                    <p>The short answer is, the Internet is a network of computers that uses the <strong>Internet Protocol</strong> to communicate. The Web on the other hand is a service that we access over the Internet. The Web is defined by how it organizes and accesses information. Information on the web, known as <strong>web resources</strong> and documents, are identified by URLs, <strong>Uniform Resource Locators</strong> and may interlink (linked meaning connected or lead to one another), hence the name <em>web</em>.</p>
+                    <h3 id="the-internet-internet-protocol">The Internet, Internet Protocol</h3>
+                    <p>The Internet is a network of computers that uses the Internet Protocol to communicate.</p>
+                    <blockquote>
+                    <p>A group of computers that are connected to one another and communicate using a common protocol is called a <strong>computer network</strong>. These computers are physically wired, or receive and transmit wireless radio-frequencies, or use other technologies for telecommunication.</p>
+                    </blockquote>
+                    <p>Today the Internet is a global network of computer networks. On the hardware side, it is made up of computers and special computers, like routers and modems, serviced by Internet service providers who communicate data over cables of length in the thousands of kilometers. On the software side, the Internet Protocol (IP for short) defines how computers communicate data with one another, that is, how to route Internet traffic. A computer is addressed using a fixed-length number, called an IP address, which is assigned in some way by the network. The Internet routes data, which are called packets, using the IP addresses of the source and destination computers.</p>
+                    <blockquote>
+                    <p>The term computer refers to machines, so it includes anything with a microprocessor (CPU), like smartphones, smart devices, game consoles, destop and personal computers, and servers.</p>
+                    <p>How are IP addresses assigned? Can a device&#39;s IP address change over time?</p>
+                    </blockquote>
+                    <h3 id="the-web">The Web</h3>
+                    <p>The World Wide Web, according to Mozilla, is a service that exists atop the Internet and which we access through the Internet. The Web is defined by how it organizes and accesses information. Information on the web, known as <strong>web resources</strong> and documents, are identified by URLs, <strong>Uniform Resource Locators</strong> and may interlink (linked meaning connected or lead to one another), hence forming a <em>web</em>.</p>
+                    <p>Along with the Web, the Internet has allowed services that permeate our lives, including email, social media, e-commerce, digital music and news, video streaming, and more.</p>
+                    <h3 id="websites-web-browsers-web-servers">Websites, Web Browsers, Web Servers</h3>
+                    <p>When we wish to visit a website like <a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a>, we type in a <strong>URL</strong>, a <strong>Uniform Resource Locator</strong>, into a web browser. The web browser does some magic which, upon completion, displays the website onto our screen. The website is made up of web pages—the page we are served when we visit <a href="https://developer.mozilla.org/en-US/">https://developer.mozilla.org/en-US/</a> is one such page, often called the <strong>landing page</strong> or the <strong>homepage</strong>. The page links to other pages.</p>
+                    <p>A <strong>web page</strong> is actually a document, called an <strong>HTML document</strong>. It lies on a machine somewhere called a <strong>web server</strong>, and your browser uses the <strong>url</strong> to identify the machine. Machines that store and deliver web pages are called <strong>web servers</strong>. That is, <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server">a <strong>web server</strong> hosts websites.</a> <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Pages_sites_servers_and_search_engines">&quot;Hosting&quot; means that all the web pages and their supporting files, including HTML documents, images, CSS, and JavaScript scripts, are available on the server.</a> Web servers <strong>host</strong> one or more websites, and some common web servers include Apache HTTP and nginx.</p>
+                    <p>Web servers communicate using <strong>HTTP</strong> (Hypertext Transfer Protocol). Web servers are often called <strong>HTTP servers</strong> for that reason. Your browser sends an <strong>HTTP request</strong>—a message with a request—to the machine at the requested url, and the web server responds back with an <strong>HTTP response</strong>.</p>
+                    <blockquote>
+                    <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP, Hypertext Transfer Protocol,</a> is a communication protocol. A protocol is a set of rules that define how to communicate. Like a language, it defines grammar, or <strong>syntax</strong>, and semantics, like what each string or keyword means.
+                    HTTP was designed for web browsers and web server to communicate. It defines its communicators as clients and servers, a common model, and is stateless, meaning a HTTP packet contains all the information a client or server needs to perform a task.</p>
+                    </blockquote>
+                    <p>Web servers are machines, and like all machines one needs to manage its resources. In general, hosting applications over the Internet involves managing <a href="https://www.twilio.com/docs/glossary/what-is-serverless-architecture">a virtual or physical server... as well as the operating system and other hosting processes</a>. Usually web developers write extra code to manage web servers. An alternative to having to maintain servers of any sort is offered by <strong>serverless computing.</strong> <strong>Serverless computing</strong> is cloud computing in which the cloud provider runs servers and <em>dynamically allocates</em> them according to the amount of computation and storage users require, who pay according to their server usage. Serverless computing relieves users from having to own or manage any server infrastructure, which was the paradigm of the past).</p>
+                    <p>The takeaway is, the Internet is powerful, the Web is still quite novel, and the possibilities to innovate are vast. Knowing how the Web and the Internet works is important to understanding how to build proper, secure, and fast websites.</p>
+                    <h2 id="1-prep-work-plan-and-research">1: Prep Work: Plan and Research</h2>
+                    <p>Keywords</p>
+                    <ul>
+                    <li>how do i host a personal project website for free</li>
+                    <li>hosting a website on a remote server</li>
+                    <li>static vs dynamic website</li>
+                    <li>serverless dynamic website</li>
+                    <li>ssh into a remote server</li>
+                    <li>aws lambda vs google cloud</li>
+                    <li>backend vs front end</li>
+                    <li>backend, server script: PHP, Javascript</li>
+                    </ul>
+                    <p>My first idea for a website was:</p>
+                    <blockquote>
+                    <p>Create an interactive webapp that looks and behaves like a terminal. The website can take inputs from the keyboard or mouse and display the output. Users can login as guests or create an account. They can execute commands to run programs or projects I&#39;ve created.</p>
+                    </blockquote>
+                    <p>As I searched &quot;how to create a terminal like website,&quot; I soon learned the difference between a static and dynamic website. A static website is one where all the content is stored at a server and users who visit a website simply get served those exact files. However, parts of my website were features of a dynamic website. For instance, in order for users to create accounts, I needed to store that information somewhere, meaning I needed a database from which to store and fetch data. I also needed some way for my website to run a program I wrote, which I&#39;d have to store on a server, and display that output.</p>
+                    <p>Soon, I scratched the interactive web app idea when I realized I can&#39;t really host a free dynamic serverless website. There was also more to learn than I thought, so I kept things simple. I decided I would host a static website inspired by terminal UX/UI on GitHub Pages, because it is free and hassle-free.</p>
+                    <p>My objective was to learn web development, so I chose to start by building a website from scratch in HTML and CSS.</p>
+                    <h3 id="dynamic-web-development-which-server-language-should-i-choose">Dynamic Web Development: Which server language should I choose, JavaScript or PHP?</h3>
+                    <p>If you want to create a dynamic website, you&#39;ll need a server and some way to maintain it. You&#39;ll need to choose a stack, that is a set of tools, languages, frameworks, or software that will help you build the website. Some <a href="https://www.fingent.com/blog/top-6-tech-stacks-that-reign-software-development-in-2020/">common web development</a> stacks include:</p>
+                    <ul>
+                    <li>MEAN (MongoDB, Express.js, AngularJS, and Node.js)</li>
+                    <li>MERN (MongoDB, Express.js, React, and Node.js)</li>
+                    <li>LAMP (Linux, Apache, MySQL, and PHP)</li>
+                    <li>Serverless stack</li>
+                    </ul>
+                    <p>When building a personal website, one might choose a serverless stack so that one would not have to maintain a server at all. Else, one could choose between PHP and Node.js, Javascript but for servers.</p>
+                    <blockquote>
+                    <p><a href="https://www.w3schools.com/php/DEFAULT.asp">PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages.</a></p>
+                    </blockquote>
+                    <p>Although <a href="https://www.freecodecamp.org/news/php-vs-javascript-which-technology-will-suit-your-business-better/">PHP might be more suitable for personal blogs</a>, one might choose Node.js for simplicity and consistency. That is, since Javascript is both a front end language (Javascript) and a server language (Node.js), one can use just one language throughout your stack, which would be called an end-to-end Javascript stack.</p>
+                    <blockquote>
+                    <p>Tidbit: Javascript is one of the most popular coding languages.</p>
+                    </blockquote>
+                    <p>Here are some websites that inspired me:</p>
+                    <ul>
+                    <li><a href="https://pard0x.dev/">https://pard0x.dev/</a></li>
+                    <li><a href="https://www.0x44.pw/">https://www.0x44.pw/</a></li>
+                    <li><a href="https://www.taniarascia.com/">https://www.taniarascia.com/</a></li>
+                    <li><a href="https://ava-sessions.com/">https://ava-sessions.com/</a></li>
+                    </ul>
+                    <h2 id="2-web-development-environment">2: Web Development Environment</h2>
+                    <p>Keywords</p>
+                    <ul>
+                    <li>HTML, CSS, JS</li>
+                    <li>Sass</li>
+                    <li>Nodejs: nvm, npm, node</li>
+                    <li>Gatsby</li>
+                    <li>Bootstrap + mobile</li>
+                    <li>Scripts</li>
+                    <li>auto-refresh</li>
+                    </ul>
+                    <h3 id="developing-locally">Developing locally</h3>
+                    <p>Keywords</p>
+                    <ul>
+                    <li>JS task runner</li>
+                    <li>build system, build tool</li>
+                    <li>web dev build automation</li>
+                    <li>gulp, grunt<ul>
+                    <li>installation: <a href="https://advancedweb.dev/javascript-task-runners">https://advancedweb.dev/javascript-task-runners</a></li>
+                    <li>comparison: <a href="https://www.keycdn.com/blog/gulp-vs-grunt">https://www.keycdn.com/blog/gulp-vs-grunt</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="https://www.freecodecamp.org/news/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8/">https://www.freecodecamp.org/news/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8/</a></li>
+                    </ul>
+                    <p>To create a web page, simply create a new file with extension <code>.html</code>, copy and paste an HTML template into the file, and open the file in the browser.</p>
+                    <p>As one develops, some tasks become repetitive. For instance, the process of making changes to a file and reloading it in the browser can be automated. Programs like <code>gulp</code>, <code>grunt</code>, or the Node package <code>browser-sync</code> help automate refreshing the file upon changes and displaying them in your browser.</p>
+                    <h3 id="setting-up-nvm-npm-node">Setting up nvm, npm, node</h3>
+                    <p>Guides to help set up <code>nvm</code>, <code>npm</code>, and <code>node</code></p>
+                    <ul>
+                    <li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-node-js-modules-with-npm-and-package-json">How To Use Node.js Modules with npm and package.json</a></li>
+                    <li><a href="https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/">An Absolute Beginner&#39;s Guide to Using npm</a></li>
+                    <li><a href="https://dev.to/saurabhdaware/but-what-the-hell-is-package-lock-json-b04">The Difference Between package.json and package-lock.json</a></li>
+                    </ul>
+                    <h2 id="3-html">3: HTML</h2>
+                    <p>Keywords</p>
+                    <ul>
+                    <li>HTML content organization</li>
+                    <li>section vs article vs div</li>
+                    <li>link vs a</li>
+                    </ul>
+                    <p>It is simpler to begin with just HTML and ensure the content is organized and tagged properly. HTML should read well even if it doesn&#39;t look nice yet. The comprehensive guides <a href="https://www.w3schools.com/html/html_basic.asp">w3schools&#39;s HTML tutorial</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">Mozilla Web Docs: HTML</a> are perfect places to start.</p>
+                    <p>Some of the things I picked up and incorporated include:</p>
+                    <ul>
+                    <li>All text should be enclosed in a tag.</li>
+                    <li>Use tags where appropriate, like <code>header</code>, <code>footer</code>, <code>section</code>, <code>article</code> for content, <code>nav</code> for navigation, andd even <code>address</code> for contact information</li>
+                    <li><code>Header</code>s and <code>footer</code>s are not just for the site, but also for articles</li>
+                    <li>Define a <code>main</code> tag to include the main content. It might help to add a link to jump directly to the content to aid screen readers</li>
+                    <li>There&#39;s a difference between <code>section</code> and <code>article</code>. Content in <code>article</code> should be <a href="http://html5doctor.com/the-article-element/">independent, self-contained, and reusable</a></li>
+                    <li><code>div</code> is <a href="https://css-tricks.com/how-to-section-your-html/#dont-swap-div-for-a-section">best reserved for styling</a>, though nothing and no one says so strictly</li>
+                    <li>The <a href="https://stackoverflow.com/questions/28650076/link-vs-a-when-to-use-one-over-the-other">difference between <code>&lt;link /&gt;</code> and <code>&lt;a&gt;&lt;/a&gt;</code></a><ul>
+                    <li><code>&lt;link /&gt;</code> is an empty element, hence the difference in tag syntax. Used in the <code>&lt;head&gt;</code>, it defines the relationship between the current document and an external resource.</li>
+                    <li><code>&lt;a&gt;&lt;/a&gt;</code> is an HTML element that has an end tag. It is used in the body and creates an object on the page.</li>
+                    </ul>
+                    </li>
+                    <li>A way to debug links in Chrome is to look at the bottom left hand corner where a black box with the link appears.</li>
+                    </ul>
+                    <p>I found it helpful to look at other websites to see what conventions they follow, if any, such as how they labeled section vs article, or how they organized their main content.</p>
+                    <h3 id="4-css">4: CSS</h3>
+                    <p>Keywords</p>
+                    <ul>
+                    <li>classes: what goes under a class?</li>
+                    <li>generalizing css</li>
+                    <li>html vs body</li>
+                    <li>flexbox: what is flex, and how to evenly space things</li>
+                    <li>containers and wrappers</li>
+                    </ul>
+                    <p>This section covers</p>
+                    <ul>
+                    <li>the browser default</li>
+                    <li>the principles of CSS: cascading, specificity, and inheritance</li>
+                    <li>property values: which ones inherit?</li>
+                    <li>fonts</li>
+                    </ul>
+                    <h4 id="natural-property-value-vs-browser-default">Natural Property Value vs Browser Default</h4>
+                    <ul>
+                    <li><strong>Every CSS property has a natural value.</strong> Some properties like <code>font-family, position, color</code> naturally inherit values, meaning they set the value applied to the selected element to be the same as that of the element&#39;s parent. <ul>
+                    <li><code>body { font-family: san-serif; }</code> Every element in the <code>&lt;body&gt;</code> tag will inherit <code>font-family</code>.</li>
+                    </ul>
+                    </li>
+                    <li>Other properties like <code>display, position</code> do not inherit from their parents. They do still have a natural value, which is its initial value. The initial value is often defined by the browser default.<ul>
+                    <li>For instance, <code>display: inline; position: static;</code> are these properties&#39; natural values.</li>
+                    </ul>
+                    </li>
+                    <li>We can change a CSS property&#39;s natural value. Every CSS property accepts four special universal property values to control inheritance: <code>inherit</code>, <code>initial</code>, <code>unset</code>, (and <code>revert</code> which has limited browser support). </li>
+                    <li>Type selectors, known as element selectors, select an HTML tag/element. Element selectors are predefined with certain property values in the <code>user agent stylesheet</code>, which is the <strong>browser default&#39;s</strong> CSS rules.<ul>
+                    <li>By default, <code>&lt;div&gt;</code> is applied <code>display: block</code></li>
+                    </ul>
+                    </li>
+                    <li>When we define a selector using the CSS syntax <code>selector { declaration block }</code>, it is important to note that it isn&#39;t the entire rules applied to the selectors which are overwritten, but rather <em>only the properties which are the same.</em></li>
+                    <li>We follow the principles cascade, specificity, and inheritance on the <code>browser default</code>.</li>
+                    </ul>
+                    <h4 id="fonts">Fonts</h4>
+                    <p>There are many ways to import a font. </p>
+                    <blockquote>
+                    <p>Crumbs: One can use an open source font on the web (the ones I chose are from Google Fonts, <a href="https://fonts.google.com/specimen/Assistant">Assistant</a> and <a href="https://code.cdn.mozilla.net/fonts/fira.css">Fira Mono</a>) and import those links in your <code>.css</code> stylesheet, or one can include font files with your website content and import those files using <code>@font-face</code>.</p>
+                    </blockquote>
+                    <p>It is important to exercise good font size setting semantics. In css, there are two commonly used units, <code>px</code> for pixels and <code>em</code>. <code>px</code> is a static measure, meaning the text displayed will not change its size when a window or screen is resized. But what if a user wishes to zoom a page and expects all contents to enlargen? We&#39;d choose to use <code>em</code>, a unit that is relative to, or a percentage of, some reference point.</p>
+                    <p>For more on how to set <code>em</code> font sizes, read <a href="https://snook.ca/archives/html_and_css/font-size-with-rem">Font sizing with rem</a> and <a href="https://alistapart.com/article/howtosizetextincss/">How to Size Text in CSS</a>.</p>
+                    <h3 id="5-deploying-on-github-pages">5: Deploying on GitHub Pages</h3>
+                    <p>Once all your files are in order, we are ready to deploy them to GitHub.</p>
+                    <p>To deploy a website on GitHub, follow the instructions found on <a href="https://pages.github.com/">GitHub Pages</a>. The gist is:</p>
+                    <ul>
+                    <li>Create a GitHub repository on <code>github.com</code> in the form of <code>&lt;username&gt;.github.io</code>, or one that follows the guidelines listed on GitHub Pages.</li>
+                    <li>Once the remote repository has been created, clone the repo to your local machine.</li>
+                    <li>Add, commit, and push your local changes to the remote repo</li>
+                    </ul>
+                    <p>It is good practice to save changes to your website as you develop each new section.</p>
+
+                    <footer class="end-content">
+                        <div>: <span class="cursor">▇</span></div>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        <script text="text/javascript" src="/js/site-header.js" defer></script>
+        <script text="text/javascript" src="/js/site-footer.js" defer></script>
+    </body>
+</html>
